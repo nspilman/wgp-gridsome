@@ -83,12 +83,12 @@ export default {
     
   },
   async created() {
-    document.addEventListener('contextmenu',e => {
-      e.preventDefault()})
+    // document.addEventListener('contextmenu',e => {
+    //   e.preventDefault()})
       this.getPhotosFromAws();
-      const copyright = document.querySelector("#copyright")
-      copyright.style.display = "block";
-      setTimeout(()=>{copyright.style.display="none"},2000)
+      // const copyright = document.querySelector("#copyright")
+      // copyright.style.display = "block";
+      // setTimeout(()=>{copyright.style.display="none"},2000)
   },
   methods: {
     openImage(e) {
