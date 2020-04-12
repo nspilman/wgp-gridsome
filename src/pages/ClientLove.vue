@@ -44,6 +44,7 @@ export default {
    }
   },
    created(){
+     if(process.isClient){
       this.getPhotosFromAws();
       document.addEventListener('contextmenu',e => {
       e.preventDefault();
@@ -51,6 +52,7 @@ export default {
       copyright.style.display = "block";
       setTimeout(()=>{copyright.style.display="none"},2000)
     })
+   }
    },
    methods:{
     async getPhotosFromAws(){

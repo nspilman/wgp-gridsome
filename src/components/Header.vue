@@ -92,6 +92,7 @@ export default {
     },
   },
   created() {
+    if(process.isClient){
     this.getPhotosFromAws('photos-homepage-slider');
     document.addEventListener('contextmenu', (e) => {
       e.preventDefault();
@@ -101,7 +102,8 @@ export default {
         copyright.style.display = 'none';
       }, 2000);
     });
-  },
+  }
+    }
 };
 </script>
 

@@ -79,6 +79,7 @@ export default {
       });
     },
     async getPhotosFromAws(portfolioCategory) {
+      if(process.isClient){
       const url = `https://py5e37ug41.execute-api.us-east-1.amazonaws.com/default/getPhotosByName?category=${portfolioCategory}`;
       const resp = await axios.get(url);
       const json = await resp.data;
@@ -87,6 +88,7 @@ export default {
       }
       this.loadPhotos();
     }
+      }
   },
   computed: {
     selectedPhoto() {
@@ -102,6 +104,7 @@ export default {
     }
   },
   async created() {
+    if(process.isClient){
     if (!this.category) {
       Object.keys(this.allCategories)
         .map(key => this.allCategories[key])
@@ -120,6 +123,7 @@ export default {
         copyright.style.display = "none";
       }, 2000);
     });
+  }
   }
 };
 </script>

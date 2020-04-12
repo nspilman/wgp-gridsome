@@ -83,9 +83,11 @@ export default {
     
   },
   async created() {
+    if(process.isClient){
+      this.getPhotosFromAws();
+    }
     // document.addEventListener('contextmenu',e => {
     //   e.preventDefault()})
-      this.getPhotosFromAws();
       // const copyright = document.querySelector("#copyright")
       // copyright.style.display = "block";
       // setTimeout(()=>{copyright.style.display="none"},2000)
@@ -102,6 +104,7 @@ export default {
       this.selectedPhoto = null;
     },
     async getPhotosFromAws() {
+      if(process.isClient){
       const url = `https://py5e37ug41.execute-api.us-east-1.amazonaws.com/default/getPhotosByName?category=photos-store`;
       const resp = await axios.get(url);
       const json = await resp.data;
@@ -112,6 +115,7 @@ export default {
         this.photos.push(photo);
       }
       this.loadPhotos();
+    }
     },
     loadPhotos() {
       this.photos.forEach(photo => {
