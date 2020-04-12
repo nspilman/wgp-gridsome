@@ -36,7 +36,7 @@
 <script>
 import Photo from "../components/Photo.vue";
 import Footer from "../components/Footer.vue";
-import Menu from "../components/Navbar.vue";
+import axios from 'axios';
 
 export default {
   // props: ["category"],
@@ -58,7 +58,6 @@ export default {
   components: {
     Photo,
     Footer,
-    Menu,
   },
   methods: {
     openImage(e) {
@@ -81,8 +80,8 @@ export default {
     },
     async getPhotosFromAws(portfolioCategory) {
       const url = `https://py5e37ug41.execute-api.us-east-1.amazonaws.com/default/getPhotosByName?category=${portfolioCategory}`;
-      const resp = await fetch(url);
-      const json = await resp.json();
+      const resp = await axios.get(url);
+      const json = await resp.data;
       for (let i = 1; i < json.length; i += 1) {
         this.photos.push(json[i]);
       }

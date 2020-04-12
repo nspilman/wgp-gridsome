@@ -103,8 +103,8 @@ export default {
     },
     async getPhotosFromAws() {
       const url = `https://py5e37ug41.execute-api.us-east-1.amazonaws.com/default/getPhotosByName?category=photos-store`;
-      const resp = await fetch(url);
-      const json = await resp.json();
+      const resp = await axios.get(url);
+      const json = await resp.data;
       for (let i = 1; i < (await json.length); i++) {
         let photo = new Object();
         photo.url = await json[i];

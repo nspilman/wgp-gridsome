@@ -36,6 +36,7 @@
 
 <script>
 import Menu from './Navbar.vue';
+import axios from 'axios';
 
 export default {
   data() {
@@ -58,8 +59,8 @@ export default {
   methods: {
     async getPhotosFromAws(portfolioCategory) {
       const url = `https://py5e37ug41.execute-api.us-east-1.amazonaws.com/default/getPhotosByName?category=${portfolioCategory}`;
-      const resp = await fetch(url);
-      const json = await resp.json();
+      const resp = await axios.get(url);
+      const json = await resp.data;
       for (let i = 1; i < (json.length); i += 1) {
         this.homepagePhotos.push(json[i]);
       }

@@ -30,6 +30,7 @@
 
 <script>
 import Loading from "../components/Loading.vue";
+import axios from 'axios'
 
 export default {
   name: "clientLove",
@@ -54,8 +55,8 @@ export default {
    methods:{
     async getPhotosFromAws(){
       const url = `https://py5e37ug41.execute-api.us-east-1.amazonaws.com/default/getPhotosByName?category=photos-clientLove`
-      const resp = await fetch(url)
-      const json = await resp.json()
+      const resp = await axios.get(url)
+      const json = await resp.data
       for(let i = 1; i < await json.length ; i ++){
         this.photos.push(await json[i].split('?')[0].split('/')[4])
       }
@@ -78,8 +79,8 @@ export default {
     },
     async getText(filename){
       const url = "https://u0f8kizng8.execute-api.us-east-1.amazonaws.com/default/GetPageTextByName?filename=" + filename;
-      const resp = await fetch(url)
-      const json = await resp.text()
+      const resp = await axios.get(url)
+      const json = await resp.data
       return json;
     },
     loadImage(){
