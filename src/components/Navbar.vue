@@ -117,7 +117,7 @@ export default {
           link: "#contact"
         }
       ],
-      windowWidth: window.innerWidth,
+      windowWidth: process.isClient ? window.innerWidth : 0,
       hamburgerIcon,
       hamburgerOn:false,
     };
