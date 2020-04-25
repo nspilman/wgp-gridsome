@@ -151,7 +151,7 @@ export default {
   display: flex;
   flex-direction: column;
   margin-right: 1em;
-  background-color:white;
+  background-color:white !important;
 }
 
 #mobile-nav{
