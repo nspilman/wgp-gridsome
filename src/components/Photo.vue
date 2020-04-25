@@ -26,9 +26,14 @@ export default {
     },
     setSpans() {
       const { imageRef } = this.$refs;
+      try{
       const height = imageRef.clientHeight;
       const spans = Math.ceil(height / 10 + 2);
       this.spans = spans;
+      }
+      catch{
+
+      }
     },
   },
 };

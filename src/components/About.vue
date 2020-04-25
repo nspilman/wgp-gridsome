@@ -24,7 +24,7 @@
             </ul>
             <p>{{signoff}}</p>
             <div class="link-detail">
-              <a href="./portfolio.html" class="btn btn-default">My work</a>
+              <g-link to="/portfolio" class="btn btn-default">My work</g-link>
             </div>
           </div>
         </div>

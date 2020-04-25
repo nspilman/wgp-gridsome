@@ -5,6 +5,9 @@
 // To restart press CTRL + C in terminal and run `gridsome develop`
 
 module.exports = {
-  siteName: 'Gridsome',
+  siteName: 'Wine Guy Photography',
+  siteUrl: 'https://www.wineguyphotography.com',
+  siteDescription: 'Wine Guy Photography - Professional & Affordable',
+  icon: 'src/favicon.png',
   plugins: []
 }
