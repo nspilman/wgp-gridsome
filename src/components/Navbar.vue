@@ -200,6 +200,10 @@ export default {
     #nav-wrapper{
       display:none;
     }
+        .top-level-item{
+        background-color: #fff;
+        width:100%;
+    }
 }
 
 @media only screen and (min-width: 900px) {
@@ -208,10 +212,6 @@ export default {
     }
     #nav-wrapper{
       display:flex;
-    }
-    .top-level-item{
-        background-color: #fff;
-        width:100%;
     }
 }
 
