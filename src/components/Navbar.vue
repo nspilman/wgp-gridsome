@@ -210,7 +210,7 @@ export default {
       display:flex;
     }
     .top-level-item{
-        background-color: white;
+        background-color: #fff;
         width:100%;
     }
 }
