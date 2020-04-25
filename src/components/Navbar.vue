@@ -158,6 +158,7 @@ export default {
   display:flex;
   flex-direction: column;
   align-items:flex-end;
+  background-color: white;
 }
 
 .top-level-item {
