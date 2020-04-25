@@ -8,7 +8,7 @@
           alt="images/wineguy_photos/wineguy_logo.png"
         />
       </a>
-      <div id="nav-wrapper" v-if="windowWidth > 900">
+      <div id="nav-wrapper">
         <span v-for="link in nav" :key="link.title">
           <li v-if="!link.children" class="top-level-item">
             <a :href="link.link">{{link.title}}</a>
@@ -16,7 +16,7 @@
           <Dropdown v-else :title="link.title" :items="link.children" />
         </span>
       </div>
-      <div id="mobile-nav" v-else>  
+      <div id="mobile-nav">  
         <img :src="hamburgerIcon" id="hamburgerIcon" @click="hamburgerOn = !hamburgerOn"/>
         <!-- <transition name="fade"> -->
         <div v-if="hamburgerOn" id="hamburger_dropdown">
@@ -122,21 +122,6 @@ export default {
       hamburgerOn:false,
     };
   },
-  created() {
-    if(process.isClient){
-      window.addEventListener("resize", this.handleResize);
-    }
-  },
-  methods: {
-    handleResize() {
-      this.windowWidth = window.innerWidth;
-    }
-  },
-  beforeDestroy() {
-    if(process.isClient){
-    window.removeEventListener("resize", this.handleResize);
-    }
-  }
 };
 </script>
 
@@ -205,6 +190,24 @@ export default {
 }
 .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
   opacity: 0;
+}
+
+@media only screen and (max-width: 900px) {
+    #mobile-nav{
+      display:flex;
+    }
+    #nav-wrapper{
+      display:none;
+    }
+}
+
+@media only screen and (min-width: 900px) {
+    #mobile-nav{
+      display:none;
+    }
+    #nav-wrapper{
+      display:flex;
+    }
 }
 
 </style>
