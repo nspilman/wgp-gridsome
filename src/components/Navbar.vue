@@ -172,7 +172,6 @@ export default {
   font-family: "Montserrat", sans-serif;
   letter-spacing: 2px;
   color: #181818;
-  background-color: #e2e2e2;
   text-decoration: none;
   text-transform: uppercase;
   line-height: 25px;
@@ -209,6 +208,10 @@ export default {
     }
     #nav-wrapper{
       display:flex;
+    }
+    .top-level-item{
+        background-color: white;
+        width:100%;
     }
 }
 
