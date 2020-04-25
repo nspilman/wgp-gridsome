@@ -174,4 +174,12 @@ export default {
 .loading-image {
   min-width: 33%;
 }
+
+@media only screen and (max-width: 900px) {
+#portfolio-photos{
+  display:flex;
+  flex-direction: column;
+  padding:2em;
+}
+}
 </style>

@@ -58,6 +58,7 @@
 import Photo from "../components/Photo.vue";
 import Menu from "../components/Navbar.vue";
 import Footer from "../components/Footer.vue";
+import axios from "axios";
 
 export default {
   data() {
@@ -135,5 +136,13 @@ export default {
 </script>
 
 <style>
+
+@media only screen and (max-width: 900px) {
+#portfolio-photos{
+  display:flex;
+  flex-direction: column;
+  padding:2em;
+}
+}
 
 </style>
