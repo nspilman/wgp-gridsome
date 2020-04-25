@@ -1,22 +1,33 @@
 <template>
   <div id="main">
     <ul id="nav">
-        <a href="/">
-           <img
-            src="../assets/images/wineguy_photos/wineguy_logo.png"
-            :style="{'maxHeight': '10vh', 'maxWidth': '40vw'}"
-            alt="images/wineguy_photos/wineguy_logo.png"
-          />
-          </a>
-          <div id="nav-wrapper">
-      <span v-for="link in nav" :key="link.title">
-        <li v-if="!link.children" class="top-level-item">
-          <a :href="link.link">  
-            {{link.title}}
-          </a>
+      <a href="/">
+        <img
+          src="../assets/images/wineguy_photos/wineguy_logo.png"
+          :style="{'maxHeight': '10vh', 'maxWidth': '40vw'}"
+          alt="images/wineguy_photos/wineguy_logo.png"
+        />
+      </a>
+      <div id="nav-wrapper" v-if="windowWidth > 900">
+        <span v-for="link in nav" :key="link.title">
+          <li v-if="!link.children" class="top-level-item">
+            <a :href="link.link">{{link.title}}</a>
           </li>
-        <Dropdown v-else :title="link.title" :items="link.children" />
-      </span>
+          <Dropdown v-else :title="link.title" :items="link.children" />
+        </span>
+      </div>
+      <div id="mobile-nav" v-else>  
+        <img :src="hamburgerIcon" id="hamburgerIcon" @click="hamburgerOn = !hamburgerOn"/>
+        <transition name="fade">
+        <div v-if="hamburgerOn" id="hamburger_dropdown">
+        <span v-for="link in nav" :key="link.title">
+          <li v-if="!link.children" class="top-level-item">
+            <a :href="link.link">{{link.title}}</a>
+          </li>
+          <Dropdown v-else :title="link.title" :items="link.children" />
+        </span>
+        </div>
+        </transition>
       </div>
     </ul>
   </div>
@@ -24,6 +35,7 @@
 
 <script>
 import Dropdown from "./Dropdown.vue";
+import hamburgerIcon from "../assets/images/Hamburger_icon.svg";
 export default {
   name: "navbar",
   components: {
@@ -104,16 +116,33 @@ export default {
           title: "Contact",
           link: "#contact"
         }
-      ]
+      ],
+      windowWidth: window.innerWidth,
+      hamburgerIcon,
+      hamburgerOn:false,
     };
+  },
+  created() {
+    if(process.isClient){
+      window.addEventListener("resize", this.handleResize);
+    }
+  },
+  methods: {
+    handleResize() {
+      this.windowWidth = window.innerWidth;
+    }
+  },
+  beforeDestroy() {
+    if(process.isClient){
+    window.removeEventListener("resize", this.handleResize);
+    }
   }
 };
 </script>
 
 <style>
-
-#main{
-  width:100vw;
+#main {
+  width: 100vw;
 }
 
 #nav {
@@ -126,10 +155,24 @@ export default {
   width: 100%;
   z-index: 99999;
   border-bottom: 1px solid #e2e2e2;
-  float:right;
-  display:flex;
+  float: right;
+  display: flex;
   justify-content: space-between;
-  padding-top:1em;
+  padding-top: 1em;
+}
+
+#hamburger_dropdown{
+  position: static;
+  display: flex;
+  flex-direction: column;
+  margin-right: 1em;
+  background-color:white;
+}
+
+#mobile-nav{
+  display:flex;
+  flex-direction: column;
+  align-items:flex-end;
 }
 
 .top-level-item {
@@ -152,8 +195,16 @@ export default {
   text-align: center;
 }
 
-.top-level-item > a{
+.top-level-item > a {
   color: #181818;
   text-decoration: none;
 }
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
+
 </style>
