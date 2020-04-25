@@ -18,7 +18,7 @@
       </div>
       <div id="mobile-nav" v-else>  
         <img :src="hamburgerIcon" id="hamburgerIcon" @click="hamburgerOn = !hamburgerOn"/>
-        <transition name="fade">
+        <!-- <transition name="fade"> -->
         <div v-if="hamburgerOn" id="hamburger_dropdown">
         <span v-for="link in nav" :key="link.title">
           <li v-if="!link.children" class="top-level-item">
@@ -27,7 +27,7 @@
           <Dropdown v-else :title="link.title" :items="link.children" />
         </span>
         </div>
-        </transition>
+        <!-- </transition> -->
       </div>
     </ul>
   </div>
