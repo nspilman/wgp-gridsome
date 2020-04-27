@@ -21,7 +21,7 @@
                     <h6 class="h6 project-title">WEDDINGS</h6>
                   </div>
                   <div class="project-body">
-                     <p v-html="getContentByName('weddings')"/>
+                     <span v-html="getContentByName('weddings')"/>
                   </div>
                   <div class="link-detail">
                     <a href="./portfolio/weddings" class="btn btn-default">See More</a>
@@ -40,7 +40,7 @@
                     <h6 class="h6 project-title">SENIOR PHOTOS</h6>
                   </div>
                   <div class="project-body">
-                    <p v-html="getContentByName('seniors')"/>
+                    <span v-html="getContentByName('seniors')"/>
                   </div>
                   <div class="link-detail">
                     <a href="./portfolio/seniors" class="btn btn-default">See More</a>
@@ -59,7 +59,7 @@
                     <h6 class="h6 project-title">FAMILY AND PETS</h6>
                   </div>
                   <div class="project-body">
-                     <p v-html="getContentByName('family')"/>
+                     <span p v-html="getContentByName('family')"/>
                   </div>
                   <div class="link-detail">
                     <a href="./portfolio/family" class="btn btn-default">See More</a>
@@ -78,7 +78,7 @@
                     <h6 class="h6 project-title">SPECIAL EVENTS</h6>
                   </div>
                   <div class="project-body">
-                    <p v-html="getContentByName('events')"/>
+                    <span v-html="getContentByName('events')"/>
                   </div>
                   <div class="link-detail">
                     <a href="./portfolio/events" class="btn btn-default">See More</a>

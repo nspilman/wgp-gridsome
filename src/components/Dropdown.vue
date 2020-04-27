@@ -1,6 +1,6 @@
 <template>
   <li class="top-level-item parent">
-    <ul :style="{paddingInlineStart:0}">
+    <ul class="dropdown-body">
       <li class="dropdown-section-title">
         {{title}}
         <p class="dropdown-tag">&#9660;</p>
@@ -87,6 +87,10 @@ export default {
 .dropdown-children{
 list-style: none;
 padding-inline-start:0;
+}
+
+.dropdown-body{
+list-style: none;
 }
 
 .child > a {
