@@ -1,14 +1,14 @@
 <template>
   <li class="top-level-item parent">
-    <ul>
+    <ul :style="{paddingInlineStart:0}">
       <li class="dropdown-section-title">
         {{title}}
         <p class="dropdown-tag">&#9660;</p>
       </li>
-      <li>
+      <li id="dropdown-children">
         <ul class="child-group">
           <li class="child" v-for="item in items" :key="item.title">
-            <g-link :href="item.link">{{item.title}}</g-link>
+            <g-link :to="item.link">{{item.title}}</g-link>
           </li>
         </ul>
       </li>
@@ -82,6 +82,11 @@ export default {
   border-bottom: 1px solid #222;
   list-style: none;
   background-color: white;
+}
+
+#dropdown-children{
+list-style: none;
+padding-inline-start:0;
 }
 
 .child > a {
