@@ -14,7 +14,7 @@ collections:
     fields:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Body", name: "body", widget: "markdown"}
-- name: "services"
+  - name: "services"
     label: "Services"
     folder: "content/Services"
     create: true
