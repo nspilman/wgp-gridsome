@@ -8,24 +8,24 @@
           alt="images/wineguy_photos/wineguy_logo.png"
         />
       </a>
-      <span id="nav-wrapper">
-        <span v-for="link in nav" :key="link.title">
-          <span v-if="!link.children" class="top-level-item">
+      <div id="nav-wrapper">
+        <ul v-for="link in nav" :key="link.title">
+          <li v-if="!link.children" class="top-level-item">
             <g-link :to="link.link">{{link.title}}</g-link>
-          </span>
+          </li>
           <Dropdown v-else :title="link.title" :items="link.children" />
-        </span>
-      </span>
+        </ul>
+      </div>
           <div id="mobile-nav">
       <img :src="hamburgerIcon" id="hamburgerIcon" @click="hamburgerOn = !hamburgerOn" />
       <!-- <transition name="fade"> -->
       <div v-if="hamburgerOn" id="hamburger_dropdown">
-        <span v-for="link in nav" :key="link.title">
+        <ul v-for="link in nav" :key="link.title">
           <li v-if="!link.children" class="top-level-item">
             <g-link :href="link.link">{{link.title}}</g-link>
           </li>
           <Dropdown v-else :title="link.title" :items="link.children" />
-        </span>
+        </ul>
       </div>
       <!-- </transition> -->
     </div>
