@@ -11,7 +11,7 @@
       <div class="pricingModalWrapper">
         <div class="pricingModal">
           <div id="pricing">
-            <Price :service="category" v-if="category" />
+            <Price :service="category" v-if="category && category.length > 0" />
             <Price v-else v-for="category in allCategories" :service="category" :key="category" />
           </div>
         </div>
