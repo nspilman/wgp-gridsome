@@ -1,6 +1,6 @@
 ---
 title: ALaCarte
-category: aerial
+category: events
 price: 0
 ---
 

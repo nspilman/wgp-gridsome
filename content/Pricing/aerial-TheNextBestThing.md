@@ -1,5 +1,5 @@
 ---
-title: The Next Best Thing
+title: aerial - The Next Best Thing
 category: aerial
 price: 600
 ---

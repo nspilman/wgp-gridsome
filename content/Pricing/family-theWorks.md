@@ -1,7 +1,6 @@
 ---
 title: The Works
 category: family
-
 price: 300
 ---
 ### The Works - $300
