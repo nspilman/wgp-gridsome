@@ -1,5 +1,5 @@
 ---
-title: Down and Dirty
+title: events - Down and Dirty
 category: events
 price: 300
 ---

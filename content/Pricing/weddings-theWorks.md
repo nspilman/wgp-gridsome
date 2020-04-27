@@ -1,7 +1,6 @@
 ---
-title: The Works
+title: weddings - The Works
 category: weddings
-
 price: 2695
 ---
 ### The Works - $2695

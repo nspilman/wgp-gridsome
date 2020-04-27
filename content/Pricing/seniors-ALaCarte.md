@@ -1,5 +1,5 @@
 ---
-title: ALaCarte
+title: seniors - ALaCarte
 category: seniors
 
 price: 0

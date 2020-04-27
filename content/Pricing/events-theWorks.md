@@ -1,5 +1,5 @@
 ---
-title: The Works
+title: events - The Works
 category: events
 price: 750
 ---

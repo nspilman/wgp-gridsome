@@ -1,6 +1,5 @@
 ---
 title: aerial - Lean and Mean
-displayTitle: Lean and Mean
 category: aerial
 price: 350
 ---

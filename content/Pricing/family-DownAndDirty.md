@@ -1,8 +1,7 @@
 ---
-title: Down and Dirty
+title: family - Down and Dirty
 category: family
-
-price: 
+price: 150
 ---
 
 ### Down and Dirty- $150.00

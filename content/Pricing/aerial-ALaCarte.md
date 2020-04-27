@@ -1,6 +1,5 @@
 ---
 title: aerial - ALaCarte
-displayTitle: A La Carte
 category: aerial
 price: 0
 ---

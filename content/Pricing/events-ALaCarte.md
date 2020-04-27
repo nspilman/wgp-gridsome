@@ -1,5 +1,5 @@
 ---
-title: ALaCarte
+title: events - ALaCarte
 category: events
 price: 0
 ---

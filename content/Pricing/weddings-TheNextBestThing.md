@@ -1,5 +1,5 @@
 ---
-title: The Next Best Thing
+title: weddings - The Next Best Thing
 category: weddings
 price: 2195
 ---

@@ -1,5 +1,5 @@
 ---
-title: ALaCarte
+title: wedding - ALaCarte
 category: weddings
 price: 0
 ---

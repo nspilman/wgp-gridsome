@@ -1,6 +1,6 @@
 ---
 category: seniors
-title: The Works
+title: seniors - The Works
 price: 400
 ---
 ### The Works - $400
