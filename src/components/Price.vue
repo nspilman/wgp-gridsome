@@ -3,17 +3,31 @@
     <h1>{{ service }}</h1>
     <div class="row">
       <div
-        v-for="pricingPackage in packages[service]"
+        v-for="pricingPackage in allPricing"
         class="col-sm-5"
         style="background-color:rgb(255,255,255,.7); padding:2em;margin:.5em; border-radius:1em;"
-        :key="pricingPackage.name"
-      >
-        <h3>{{pricingPackage.name}} - {{pricingPackage.price}}</h3>
-        <h6 v-for="detail in pricingPackage.details" :key="detail">{{detail}}</h6>
-      </div>
+        :key="pricingPackage.title"
+        v-html="pricingPackage.content"
+      />
     </div>
   </div>
 </template>
+
+<static-query>
+query Content {
+  allPricing: allPricing {
+    edges {
+      node {
+        id
+        title
+        category
+        content
+        price
+      }
+    }
+  }
+}
+</static-query>
 
 <script>
 export default {
@@ -69,7 +83,7 @@ export default {
               'Wedding Montage Canvas 24" x 36" $500.00',
               'Wedding Montage Canvas 30" x 40" $750.00',
               "Wedding Album - Starting at $600.00",
-              'Aerial Photography/Videography Add On $300.00',
+              "Aerial Photography/Videography Add On $300.00"
             ]
           }
         ],
@@ -151,61 +165,57 @@ export default {
               "Photo/copyright release to share and print all images as you desire."
             ]
           },
-           {
-              name: 'Ala Carte',
-              price: '',
-              details:
-                [
-                  'Aerial Photography/Videography Add On $300.00',
-                ]
-            }
+          {
+            name: "Ala Carte",
+            price: "",
+            details: ["Aerial Photography/Videography Add On $300.00"]
+          }
         ],
-        aerial:
-          [
-            {
-              name: 'The Works',
-              price: '$900.00',
-              details:
-                [
-                  'Full coverage photography and videography',
-                  '40+ high resolution images',
-                  'Professional editing.'
-                ]
-            },
-            {
-              name: 'The Next Best Thing',
-              price: '$600.00',
-              details:
-                [
-                  '10-20 high resolution images',
-                  '60-90 second video',
-                  'Professional editing',
-                ]
-            },
-            {
-              name: 'Lean and Mean',
-              price: '$350.00',
-              details:
-                [
-                  '10-20 high resolution images',
-                  'Professional editing',
-                ]
-            },
-            {
-              name: 'Ala Carte',
-              price: '',
-              details:
-                [
-                  'Aerial Photography/Videography Add On $300.00',
-                ]
-            }
-          ],
+        aerial: [
+          {
+            name: "The Works",
+            price: "$900.00",
+            details: [
+              "Full coverage photography and videography",
+              "40+ high resolution images",
+              "Professional editing."
+            ]
+          },
+          {
+            name: "The Next Best Thing",
+            price: "$600.00",
+            details: [
+              "10-20 high resolution images",
+              "60-90 second video",
+              "Professional editing"
+            ]
+          },
+          {
+            name: "Lean and Mean",
+            price: "$350.00",
+            details: ["10-20 high resolution images", "Professional editing"]
+          },
+          {
+            name: "Ala Carte",
+            price: "",
+            details: ["Aerial Photography/Videography Add On $300.00"]
+          }
+        ]
       }
     };
   },
   props: ["service"],
+  computed: {
+    allPricing() {
+      const output = this.$static.allPricing.edges
+        .map(edge => edge.node)
+        .filter(node => node.category == this.service);
+      return output.sort(function(a, b) {
+        return b.price - a.price;
+      });
+    }
+  },
   methods: {},
-  created() {}
 };
 </script>
 

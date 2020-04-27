@@ -103,7 +103,7 @@
 
 <static-query>
 query Content {
-  content: allIndexServices {
+  content: allServices {
     edges {
       node {
         id

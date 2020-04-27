@@ -18,7 +18,7 @@ module.exports = {
       {
         use: '@gridsome/source-filesystem',
         options: {
-          path: 'content/IndexServices/*.md',
+          path: 'content/Services/*.md',
           typeName: 'Services',
           remark: {
             plugins: [
@@ -54,7 +54,7 @@ module.exports = {
       {
         use: '@gridsome/source-filesystem',
         options: {
-          path: 'content/Pricing/*/*.md',
+          path: 'content/Pricing/*.md',
           typeName: 'Pricing',
           remark: {
             plugins: [

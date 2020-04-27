@@ -1,7 +1,6 @@
 ---
-title: The Works
+title: The Next Best Thing
 category: weddings
-
 price: 2195
 ---
 

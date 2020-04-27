@@ -1,7 +1,6 @@
 ---
 title: ALaCarte
 category: weddings
-
 price: 0
 ---
 

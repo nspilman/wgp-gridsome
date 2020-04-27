@@ -1,7 +1,6 @@
 ---
 title: Lean and Mean
 category: weddings
-
 price: 1895
 ---
 
