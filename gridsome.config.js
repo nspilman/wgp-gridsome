@@ -15,18 +15,54 @@ module.exports = {
     anchorClassName: 'icon icon-link',
   },
     plugins: [
-      // {
-      //   use: '@gridsome/source-filesystem',
-      //   options: {
-      //     path: 'posts/**/*.md',
-      //     typeName: 'Post',
-      //     remark: {
-      //       plugins: [
-      //         // ...local plugins
-      //       ]
-      //     }
-      //   }
-      // },
+      {
+        use: '@gridsome/source-filesystem',
+        options: {
+          path: 'content/IndexServices/*.md',
+          typeName: 'IndexServices',
+          remark: {
+            plugins: [
+              // ...local plugins
+            ]
+          }
+        }
+      },
+      {
+        use: '@gridsome/source-filesystem',
+        options: {
+          path: 'content/*.md',
+          typeName: 'Content',
+          remark: {
+            plugins: [
+              // ...local plugins
+            ]
+          }
+        }
+      },
+      {
+        use: '@gridsome/source-filesystem',
+        options: {
+          path: 'pricing/events/*.md',
+          typeName: 'Pricing_events',
+          remark: {
+            plugins: [
+              // ...local plugins
+            ]
+          }
+        }
+      },
+      {
+        use: '@gridsome/source-filesystem',
+        options: {
+          path: 'content/Pricing/*/*.md',
+          typeName: 'Pricing',
+          remark: {
+            plugins: [
+              // ...local plugins
+            ]
+          }
+        }
+      },
       {
         use: `gridsome-plugin-netlify-cms`,
         options: {
