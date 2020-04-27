@@ -5,9 +5,7 @@
         <div class="container">
           <div class="row">
             <div class="col-xs-12 text-black">
-              <b>
                 <h1 class="text-center" :style="{color:'black', padding: '.5em'}">TESTIMONIALS</h1>
-              </b>
             </div>
           </div>
         </div>
