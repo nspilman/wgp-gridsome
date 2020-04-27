@@ -14,15 +14,8 @@
         <div class="col-sm-7 col-xs-12">
           <div class="section-title title-sty2">
             <h3 class="h3 bor-underline">About</h3>
-            <span>Member - Professional Photographers of America</span>
           </div>
-          <div class="section-content content-italic">
-            <p>{{lineOne}}</p>
-            <p>{{lineTwo}}</p>
-            <ul>
-              <li v-for="cred in credList" :key="cred">{{cred}}</li>
-            </ul>
-            <p>{{signoff}}</p>
+          <div class="section-content content-italic" v-html="content[0].content">
             <div class="link-detail">
               <g-link to="/portfolio" class="btn btn-default">My work</g-link>
             </div>
@@ -33,6 +26,19 @@
   </section>
 </template>
 
+<static-query>
+query About {
+  content: allContent {
+    edges {
+      node {
+        id
+        title
+        content
+      }
+    }
+  }
+}
+</static-query>
 <script>
 export default {
   data() {
@@ -50,6 +56,11 @@ export default {
       signoff:
         "Whether your shoot is indoors or out, I can capture the images you'll always cherish. Whatever your photography needs, I can help.",
     };
+  },
+  computed:{
+    content(){
+      return this.$static.content.edges.map(edge => edge.node)
+    }
   },
 };
 </script>
