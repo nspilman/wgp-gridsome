@@ -25,4 +25,22 @@ query {
 
 </style>
 
+<script>
+export default {
+  watch:{
+    route(){
+      location.reload();
+    }
+  },
+  computed:{
+    route(){
+        return process.isClient ? this.$route: "/";
+    }
+  },
+  created(){
+    console.log(this.route.path)
+  }
+}
+</script>
+
 
