@@ -6,7 +6,7 @@
         </span>
         <ul class="child-group">
           <li class="child" v-for="item in items" :key="item.title">
-            <a :href="item.link">{{item.title}}</a>
+            <g-link :href="item.link">{{item.title}}</g-link>
             </li>
         </ul>
       </li>

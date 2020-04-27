@@ -1,6 +1,6 @@
 <template>
   <div id="main">
-    <ul id="nav">
+    <span id="nav">
       <a href="/">
         <img
           src="../assets/images/wineguy_photos/wineguy_logo.png"
@@ -8,28 +8,28 @@
           alt="images/wineguy_photos/wineguy_logo.png"
         />
       </a>
-      <div id="nav-wrapper">
+      <span id="nav-wrapper">
         <span v-for="link in nav" :key="link.title">
           <li v-if="!link.children" class="top-level-item">
             <g-link :to="link.link">{{link.title}}</g-link>
           </li>
           <Dropdown v-else :title="link.title" :items="link.children" />
         </span>
-      </div>
-      <div id="mobile-nav">  
-        <img :src="hamburgerIcon" id="hamburgerIcon" @click="hamburgerOn = !hamburgerOn"/>
-        <!-- <transition name="fade"> -->
-        <div v-if="hamburgerOn" id="hamburger_dropdown">
+      </span>
+          <div id="mobile-nav">
+      <img :src="hamburgerIcon" id="hamburgerIcon" @click="hamburgerOn = !hamburgerOn" />
+      <!-- <transition name="fade"> -->
+      <div v-if="hamburgerOn" id="hamburger_dropdown">
         <span v-for="link in nav" :key="link.title">
           <li v-if="!link.children" class="top-level-item">
             <a :href="link.link">{{link.title}}</a>
           </li>
           <Dropdown v-else :title="link.title" :items="link.children" />
         </span>
-        </div>
-        <!-- </transition> -->
       </div>
-    </ul>
+      <!-- </transition> -->
+    </div>
+    </span>
   </div>
 </template>
 
@@ -119,9 +119,9 @@ export default {
       ],
       windowWidth: process.isClient ? window.innerWidth : 0,
       hamburgerIcon,
-      hamburgerOn:false,
+      hamburgerOn: false
     };
-  },
+  }
 };
 </script>
 
@@ -146,18 +146,18 @@ export default {
   padding-top: 1em;
 }
 
-#hamburger_dropdown{
+#hamburger_dropdown {
   position: static;
   display: flex;
   flex-direction: column;
   margin-right: 1em;
-  background-color:white !important;
+  background-color: white !important;
 }
 
-#mobile-nav{
-  display:flex;
+#mobile-nav {
+  display: flex;
   flex-direction: column;
-  align-items:flex-end;
+  align-items: flex-end;
   background-color: white;
 }
 
@@ -186,33 +186,33 @@ export default {
   text-decoration: none;
 }
 
-.fade-enter-active, .fade-leave-active {
-  transition: opacity .5s;
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
 }
 .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
   opacity: 0;
 }
 
 @media only screen and (max-width: 900px) {
-    #mobile-nav{
-      display:flex;
-    }
-    #nav-wrapper{
-      display:none;
-    }
-        .top-level-item{
-        background-color: #fff;
-        width:100%;
-    }
+  #mobile-nav {
+    display: flex;
+  }
+  #nav-wrapper {
+    display: none;
+  }
+  .top-level-item {
+    background-color: #fff;
+    width: 100%;
+  }
 }
 
 @media only screen and (min-width: 900px) {
-    #mobile-nav{
-      display:none;
-    }
-    #nav-wrapper{
-      display:flex;
-    }
+  #mobile-nav {
+    display: none;
+  }
+  #nav-wrapper {
+    display: flex;
+  }
 }
-
 </style>
