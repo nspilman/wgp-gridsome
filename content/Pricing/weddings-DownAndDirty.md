@@ -1,5 +1,5 @@
 ---
-title: Down and Dirty
+title: weddings - Down and Dirty
 category: weddings
 price: 750
 ---
