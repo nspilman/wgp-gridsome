@@ -12,7 +12,7 @@
           </div>
           <div class="section-content">
             <div class="project-list style-projt2">
-              <div class="project-item">
+              <div class="project-item" v-for="service in services" :key="service">
                 <div class="project-item-content">
                   <div class="project-header">
                     <span class="project-logo">
@@ -21,68 +21,11 @@
                     <h6 class="h6 project-title">WEDDINGS</h6>
                   </div>
                   <div class="project-body">
-                     <span v-html="getContentByName('weddings')"/>
+                     <div v-html="getContentByName(service)"/>
                   </div>
                   <div class="link-detail">
                     <a href="./portfolio/weddings" class="btn btn-default">See More</a>
                     <a href="./pricing/weddings">
-                      <button class="btn btn-default">Pricing</button>
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div class="project-item">
-                <div class="project-item-content">
-                  <div class="project-header">
-                    <span class="project-logo">
-                      <i class="fa fa-lightbulb-o"></i>
-                    </span>
-                    <h6 class="h6 project-title">SENIOR PHOTOS</h6>
-                  </div>
-                  <div class="project-body">
-                    <span v-html="getContentByName('seniors')"/>
-                  </div>
-                  <div class="link-detail">
-                    <a href="./portfolio/seniors" class="btn btn-default">See More</a>
-                    <a href="./pricing/seniors">
-                      <button class="btn btn-default">Pricing</button>
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div class="project-item">
-                <div class="project-item-content">
-                  <div class="project-header">
-                    <span class="project-logo">
-                      <i class="fa fa-tint"></i>
-                    </span>
-                    <h6 class="h6 project-title">FAMILY AND PETS</h6>
-                  </div>
-                  <div class="project-body">
-                     <span p v-html="getContentByName('family')"/>
-                  </div>
-                  <div class="link-detail">
-                    <a href="./portfolio/family" class="btn btn-default">See More</a>
-                    <a href="./pricing/family">
-                      <button class="btn btn-default">Pricing</button>
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div class="project-item">
-                <div class="project-item-content">
-                  <div class="project-header">
-                    <span class="project-logo">
-                      <i class="fa fa-fire"></i>
-                    </span>
-                    <h6 class="h6 project-title">SPECIAL EVENTS</h6>
-                  </div>
-                  <div class="project-body">
-                    <span v-html="getContentByName('events')"/>
-                  </div>
-                  <div class="link-detail">
-                    <a href="./portfolio/events" class="btn btn-default">See More</a>
-                    <a href="./pricing/events">
                       <button class="btn btn-default">Pricing</button>
                     </a>
                   </div>
@@ -117,6 +60,11 @@ query Content {
 
 <script>
 export default {
+      data(){
+      return {
+        services:['weddings','events','family','seniors']
+      }
+    },
   computed:{
     content(){
       return this.$static.content.edges.map(edge => edge.node)
