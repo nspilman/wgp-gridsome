@@ -1,6 +1,6 @@
 <template>
   <div id="main">
-    <span id="nav">
+    <div id="nav">
       <a href="/">
         <img
           src="../assets/images/wineguy_photos/wineguy_logo.png"
@@ -10,9 +10,9 @@
       </a>
       <span id="nav-wrapper">
         <span v-for="link in nav" :key="link.title">
-          <li v-if="!link.children" class="top-level-item">
+          <span v-if="!link.children" class="top-level-item">
             <g-link :to="link.link">{{link.title}}</g-link>
-          </li>
+          </span>
           <Dropdown v-else :title="link.title" :items="link.children" />
         </span>
       </span>
@@ -22,14 +22,14 @@
       <div v-if="hamburgerOn" id="hamburger_dropdown">
         <span v-for="link in nav" :key="link.title">
           <li v-if="!link.children" class="top-level-item">
-            <a :href="link.link">{{link.title}}</a>
+            <g-link :href="link.link">{{link.title}}</g-link>
           </li>
           <Dropdown v-else :title="link.title" :items="link.children" />
         </span>
       </div>
       <!-- </transition> -->
     </div>
-    </span>
+    </div>
   </div>
 </template>
 
