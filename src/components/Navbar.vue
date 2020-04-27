@@ -11,7 +11,7 @@
       <div id="nav-wrapper">
         <span v-for="link in nav" :key="link.title">
           <li v-if="!link.children" class="top-level-item">
-            <a :href="link.link">{{link.title}}</a>
+            <g-link :to="link.link">{{link.title}}</g-link>
           </li>
           <Dropdown v-else :title="link.title" :items="link.children" />
         </span>
