@@ -36,7 +36,7 @@
 				<div class="col-md-12" id="store">
 						<div v-if="selectedPhotoIndex || selectedPhotoIndex == 0" class ="photoModalWrapper" @click="closeImage">
 							<div class = "photoModal">
-							  <img :src="selectedPhoto.url" alt="photograph">	
+							  <g-image :src="selectedPhoto.url" alt="photograph"/>	
 							  <h4 style="color:white;">
 								{{selectedPhotoName}}
 							</h4>
@@ -79,10 +79,8 @@ export default {
     Menu,
     Footer,
   },
-  async created() {
-    if(process.isClient){
+  async mounted() {
       this.getPhotosFromAws();
-    }
     // document.addEventListener('contextmenu',e => {
     //   e.preventDefault()})
       // const copyright = document.querySelector("#copyright")

@@ -37,9 +37,6 @@ export default {
         return process.isClient ? this.$route: "/";
     }
   },
-  created(){
-    console.log(this.route.path)
-  }
 }
 </script>
 

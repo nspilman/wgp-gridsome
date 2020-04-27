@@ -8,7 +8,7 @@
                 <div class="col-sm-4 col-tn-8 col-xs-10 col-tn-offset-2 col-xs-offset-1 col-sm-offset-0 pull-left">
                         <div class="history-logo">
                             <div class="frame-img" style="background-image:url() !important;">
-                                <img @load="loadImage" :src="testimonial.url" >
+                                <g-image @load="loadImage" :src="testimonial.url"/>
                                 <!-- alt="logo"> -->
                             </div>
                         </div>
@@ -43,8 +43,7 @@ export default {
     photos:[],
    }
   },
-   created(){
-     if(process.isClient){
+   mounted(){
       this.getPhotosFromAws();
       document.addEventListener('contextmenu',e => {
       e.preventDefault();
@@ -52,7 +51,6 @@ export default {
       copyright.style.display = "block";
       setTimeout(()=>{copyright.style.display="none"},2000)
     })
-   }
    },
    methods:{
     async getPhotosFromAws(){

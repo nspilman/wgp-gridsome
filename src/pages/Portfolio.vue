@@ -10,7 +10,7 @@
             <div class="post-content" id="portfolio-photos" v-if="!isLoading">
               <div v-if="selectedPhoto" class="photoModalWrapper" @click="closeImage">
                 <div class="photoModal">
-                  <img :src="selectedPhoto" alt="photograph" />
+                  <g-image :src="selectedPhoto" alt="photograph" />
                 </div>
               </div>
               <Photo
@@ -103,8 +103,7 @@ export default {
       location.reload();
     }
   },
-  async created() {
-    if(process.isClient){
+  async mounted() {
     if (!this.category) {
       Object.keys(this.allCategories)
         .map(key => this.allCategories[key])
@@ -123,7 +122,6 @@ export default {
         copyright.style.display = "none";
       }, 2000);
     });
-  }
   }
 };
 </script>

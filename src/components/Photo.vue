@@ -1,6 +1,6 @@
 <template>
   <span class="portfolio-image store-image" :style="{gridRowEnd:'span '+ spans }">
-    <img
+    <g-image
       @click="sendOpenImageMessageToParent"
       ref="imageRef"
       @load="setSpans"
@@ -12,15 +12,6 @@
       {{photoName}}
     </h4>
   </span>
-  <!-- <img
-    class="portfolio-image"
-    :style="{gridRowEnd:'span '+ spans }"
-    @load="setSpans"
-    ref="imageRef"
-    @click="sendOpenImageMessageToParent"
-    :src="filepath"
-    alt="photograph"
-  />-->
 </template>
 
 <script>

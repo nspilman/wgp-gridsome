@@ -9,7 +9,7 @@
                 <div class="theme-logo">
                   <div class="logo-content-img">
                     <a href="/">
-                      <img id="logo" :src="logo" alt="logo" />
+                      <g-image id="logo" :src="logo" alt="logo" />
                     </a>
                   </div>
                 </div>
@@ -33,7 +33,7 @@
             </div>
             <div class="col-sm-5 col-xs-12 col-sm-offset-2">
               <div class="theme-contact">
-                <img src="../assets/images/wineguy_photos/contact_section.jpeg" />
+                <g-image src="../assets/images/wineguy_photos/contact_section.jpeg" />
               </div>
             </div>
           </div>

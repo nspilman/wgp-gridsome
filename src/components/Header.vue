@@ -17,8 +17,8 @@
                 <p>Professional &amp; Affordable</p>
               </div>
               <div class="ts-item-background">
-                <img v-if="isLoading" src="../assets/images/Cube-1s-200px.svg" />
-                <img
+                <g-image v-if="isLoading" src="../assets/images/Cube-1s-200px.svg" alt="loading"/>
+                <g-image
                   v-if="!isLoading"
                   :src="currentPhoto"
                   alt="background"
@@ -91,8 +91,7 @@ export default {
       }, 3000);
     },
   },
-  created() {
-    if(process.isClient){
+  mounted() {
     this.getPhotosFromAws('photos-homepage-slider');
     document.addEventListener('contextmenu', (e) => {
       e.preventDefault();
@@ -102,7 +101,6 @@ export default {
         copyright.style.display = 'none';
       }, 2000);
     });
-  }
     }
 };
 </script>

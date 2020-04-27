@@ -2,10 +2,10 @@
   <div id="main">
     <div id="nav">
       <a href="/">
-        <img
+        <g-image
           src="../assets/images/wineguy_photos/wineguy_logo.png"
-          :style="{'maxHeight': '10vh', 'maxWidth': '40vw'}"
-          alt="images/wineguy_photos/wineguy_logo.png"
+          :style="{'maxHeight': '10vh', 'maxWidth': '20vw'}"
+          alt="Wine Guy Photography Logo"
         />
       </a>
       <div id="nav-wrapper">
@@ -17,10 +17,10 @@
         </ul>
       </div>
           <div id="mobile-nav">
-      <img :src="hamburgerIcon" id="hamburgerIcon" @click="hamburgerOn = !hamburgerOn" />
+      <g-image :src="hamburgerIcon" id="hamburgerIcon" @click="hamburgerOn = !hamburgerOn" alt="mobile menu"/>
       <!-- <transition name="fade"> -->
       <div v-if="hamburgerOn" id="hamburger_dropdown">
-        <ul v-for="link in nav" :key="link.title">
+        <ul  v-for="link in nav" :key="link.title">
           <li v-if="!link.children" class="top-level-item">
             <g-link :href="link.link">{{link.title}}</g-link>
           </li>
