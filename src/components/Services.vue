@@ -24,8 +24,8 @@
                      <div v-html="getContentByName(service)"/>
                   </div>
                   <div class="link-detail">
-                    <g-link :to="`./portfolio/?category=${service}`" class="btn btn-default">See More</g-link>
-                    <g-link :to="`./pricing/?category=${service}`" class="btn btn-default">Pricing</g-link>
+                    <g-link :to="`./portfolio?category=${service}`" class="btn btn-default">See More</g-link>
+                    <g-link :to="`./pricing?category=${service}`" class="btn btn-default">Pricing</g-link>
                   </div>
                 </div>
               </div>
