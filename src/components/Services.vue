@@ -21,7 +21,7 @@
                     <h6 class="h6 project-title">WEDDINGS</h6>
                   </div>
                   <div class="project-body">
-                    <p>{{weddingText}}</p>
+                     <p v-html="getContentByName('weddings')"/>
                   </div>
                   <div class="link-detail">
                     <a href="./portfolio/weddings" class="btn btn-default">See More</a>
@@ -40,7 +40,7 @@
                     <h6 class="h6 project-title">SENIOR PHOTOS</h6>
                   </div>
                   <div class="project-body">
-                    <p>{{seniorsText}}</p>
+                    <p v-html="getContentByName('seniors')"/>
                   </div>
                   <div class="link-detail">
                     <a href="./portfolio/seniors" class="btn btn-default">See More</a>
@@ -59,7 +59,7 @@
                     <h6 class="h6 project-title">FAMILY AND PETS</h6>
                   </div>
                   <div class="project-body">
-                    <p>{{familyText}}</p>
+                     <p v-html="getContentByName('family')"/>
                   </div>
                   <div class="link-detail">
                     <a href="./portfolio/family" class="btn btn-default">See More</a>
@@ -78,7 +78,7 @@
                     <h6 class="h6 project-title">SPECIAL EVENTS</h6>
                   </div>
                   <div class="project-body">
-                    <p>{{specialEventsText}}</p>
+                    <p v-html="getContentByName('events')"/>
                   </div>
                   <div class="link-detail">
                     <a href="./portfolio/events" class="btn btn-default">See More</a>
@@ -101,19 +101,31 @@
   </section>
 </template>
 
+<static-query>
+query Content {
+  content: allIndexServices {
+    edges {
+      node {
+        id
+        title
+        content
+      }
+    }
+  }
+}
+</static-query>
+
 <script>
 export default {
-  data() {
-    return {
-      specialEventsText:
-        'Whether it be a family reunion, bat mitzvah, quinceañera, anniversary, or birthday party. I’ll be there to commemorate your special event.',
-      seniorsText:
-        'I absolutely love shooting Seniors! My sessions are less about taking a great portrait for the yearbook (although we’ll definitely do that!) and more about getting a ton of great images to commemorate this awesome rite of passage and moment in time.',
-      familyText:
-        'Everybody finally together for the holidays? Want to capture the kids at this adorable age? New puppy? Whatever your portrait needs, I can make it happen for you.',
-      weddingText:
-        'Your wedding day is one of the most important days of your life. I believe that you should choose a photographer that you feel a deep connection with, and whose style of images truly resonates with you.',
-    };
+  computed:{
+    content(){
+      return this.$static.content.edges.map(edge => edge.node)
+    }
+  },
+  methods:{
+    getContentByName(name){
+      return this.content.filter(service => service.title==name)[0].content
+    },
   },
 };
 </script>
