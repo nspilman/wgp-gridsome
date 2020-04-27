@@ -5,7 +5,7 @@
         {{title}}
         <p class="dropdown-tag">&#9660;</p>
       </li>
-      <li id="dropdown-children">
+      <li class="dropdown-children">
         <ul class="child-group">
           <li class="child" v-for="item in items" :key="item.title">
             <g-link :to="item.link">{{item.title}}</g-link>
@@ -84,7 +84,7 @@ export default {
   background-color: white;
 }
 
-#dropdown-children{
+.dropdown-children{
 list-style: none;
 padding-inline-start:0;
 }
