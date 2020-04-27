@@ -14,9 +14,17 @@ collections:
     fields:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Body", name: "body", widget: "markdown"}
+- name: "services"
+    label: "Services"
+    folder: "content/Services"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Body", name: "body", widget: "markdown"}
   - name: "pricing"
     label: "Pricing"
-    folder: "content/Pricing/*"
+    folder: "content/Pricing"
     create: true
     slug: "{{slug}}"
     fields:

@@ -19,7 +19,7 @@ module.exports = {
         use: '@gridsome/source-filesystem',
         options: {
           path: 'content/IndexServices/*.md',
-          typeName: 'IndexServices',
+          typeName: 'Services',
           remark: {
             plugins: [
               // ...local plugins
