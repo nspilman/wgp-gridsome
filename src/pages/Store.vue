@@ -1,8 +1,8 @@
 <template>
 <Layout>
-      <Navbar/>
+      <Navbar v-if="!selectedPhotoIndex && selectedPhotoIndex != 0"/>
   <div class="main-page bg-gray padding-tn">
-	<section class="section-blog-massory">
+	<section id="store-section" class="section-blog-massory">
 		<div class="container">
 			<div class = "section-content">
 			<span id = "storeText">
@@ -34,17 +34,17 @@
 			<div class="row" style="padding-top:1em">
                  <Loading v-if="isLoading" />
 				<div class="col-md-12" id="store">
-						<div v-if="selectedPhoto" class ="photoModalWrapper" @click="closeImage">
+						<div v-if="selectedPhotoIndex || selectedPhotoIndex == 0" class ="photoModalWrapper" @click="closeImage">
 							<div class = "photoModal">
-							  <img :src="selectedPhoto" alt="photograph">	
+							  <img :src="selectedPhoto.url" alt="photograph">	
 							  <h4 style="color:white;">
 								{{selectedPhotoName}}
 							</h4>
 							</div>
 						  </div>
 						  <div class="post-content store-content" id="portfolio-photos">
-								<Photo @opened-image="openImage" v-for="(photo,index) in photos" :index="index" :filepath="photo.url" :key="index"/>
-							</div>
+								<Photo @opened-image="openImage" v-for="(photo,index) in photos" :index="index" :showtitle="true" :filepath="photo.url" :key="index"/>
+              </div>
 					</div>
 				</div>	
 		</div>
@@ -70,8 +70,7 @@ export default {
     category: "cityscape",
     categoryName: "Cityscape Photo"
     },
-    selectedPhoto: null,
-    selectedPhotoName: null,
+    selectedPhotoIndex: null,
     isLoading: true,
     imageLoaded: 0,
   }},
@@ -79,9 +78,6 @@ export default {
     Photo,
     Menu,
     Footer,
-  },
-  computed: {
-    
   },
   async created() {
     if(process.isClient){
@@ -93,16 +89,29 @@ export default {
       // copyright.style.display = "block";
       // setTimeout(()=>{copyright.style.display="none"},2000)
   },
+  computed:{
+    selectedPhoto() {
+      return this.photos[this.selectedPhotoIndex];
+    },
+  },
   methods: {
+   toggleShow() {
+      this.hideArray.forEach(tag => {
+        const domElement = document.querySelector(tag);
+        const currentDisplay = domElement.style.display;
+        domElement.style.display = currentDisplay == "none" ? "block" : "none";
+      });
+    },
     openImage(e) {
-      this.selectedPhoto = e.filepath;
+      this.selectedPhotoIndex = e.index;
       this.selectedPhotoName = e.photoName;
+      // this.toggleShow();
     },
     getPhotoName(url){
       return url.split('photos-store/')[1].split('.')[0].replace(/-/gi,' ')
     },
     closeImage() {
-      this.selectedPhoto = null;
+      this.selectedPhotoIndex = null;
     },
     async getPhotosFromAws() {
       if(process.isClient){
@@ -136,6 +145,39 @@ export default {
 </script>
 
 <style>
+.photoModalWrapper {
+  width: 100vw;
+  height: 100%;
+  margin-left: -10vw;
+  position: absolute;
+  top: 0;
+  display: flex;
+  z-index: 1;
+}
+.photoModal {
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgb(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 1em;
+  z-index: 3;
+}
+.photoModal img {
+  max-width: 90vw;
+  max-height: 90vh;
+  padding-top: 2em;
+}
+
+#store-section{
+  margin-top:5em;
+}
 
 @media only screen and (max-width: 900px) {
 #portfolio-photos{
