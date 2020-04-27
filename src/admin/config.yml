@@ -1,0 +1,25 @@
+backend:
+  name: github
+  repo: nspilman/wgp-gridsome
+
+media_folder: "static/uploads"
+public_folder: "/uploads"
+
+collections:
+  - name: "content"
+    label: "Content"
+    folder: "content"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Body", name: "body", widget: "markdown"}
+  - name: "pricing"
+    label: "Pricing"
+    folder: "content/Pricing/*"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Category", name: "category", widget: "string"}
+      - {label: "Body", name: "body", widget: "markdown"}
