@@ -14,6 +14,9 @@ module.exports = {
     externalLinksRel: ['nofollow', 'noopener', 'noreferrer'],
     anchorClassName: 'icon icon-link',
   },
+  chainWebpack (config) {
+    config.mode('development')
+  },
     plugins: [
       {
         use: '@gridsome/source-filesystem',
