@@ -94,12 +94,16 @@ export default {
 </script>
 
 <style>
-.header-photo{
-   max-height: 100vh;
-}
 
 .ts-item-background img{
 height: 100vh;
 width:auto;
+}
+
+@media only screen and (max-width: 900px) {
+#portfolio-photos{
+widows: 100%;
+height: auto;
+}
 }
 </style>
