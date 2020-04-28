@@ -4,7 +4,7 @@
       <a href="/">
         <g-image
           src="../assets/images/wineguy_photos/wineguy_logo.png"
-          :style="{'maxHeight': '10vh', 'maxWidth': '40vw'}"
+          :style="{'maxHeight': '10vh', 'maxWidth': '20vw'}"
           alt="Wine Guy Photography Logo"
         />
       </a>

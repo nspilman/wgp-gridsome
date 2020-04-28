@@ -34,8 +34,8 @@
 </template>
 
 <script>
-import Photo from "../components/Photo.vue";
-import Footer from "../components/Footer.vue";
+import Photo from "../../components/Photo.vue";
+import Footer from "../../components/Footer.vue";
 import axios from 'axios';
 
 export default {
