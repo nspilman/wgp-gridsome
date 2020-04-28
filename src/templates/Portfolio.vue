@@ -6,23 +6,27 @@
       <div class="container">
         <div class="row">
           <div class="col-md-12" id="portfolio-photos-wrapper">
-            <Loading v-if="isLoading" />
-            <div class="post-content" id="portfolio-photos" v-if="!isLoading">
+            <!-- <Loading v-if="isLoading" /> -->
+            <div class="post-content">
               <div v-if="selectedPhoto" class="photoModalWrapper" @click="closeImage">
                 <div class="photoModal">
                   <g-image :src="selectedPhoto" alt="photograph" />
                 </div>
               </div>
-              <Photo
+              <div id="portfolio-photos-markdown">
+              <Photo v-for="(photo,index) in photos" :photoMarkdown="photo" :index="index" :key="photo"/>
+
+              </div>
+              <!-- <Photo
                 @opened-image="openImage"
                 v-for="(photo,index) in photos"
                 :index="index"
                 :key="index"
                 :filepath="photo"
-              />
-              <div class="loading">
+              /> -->
+              <!-- <div class="loading">
                 <h1>Loading</h1>
-              </div>
+              </div> -->
             </div>
           </div>
         </div>
@@ -33,9 +37,20 @@
   </Layout>
 </template>
 
+<page-query>
+query Photos ($path:String!){
+images:portfolio(path:$path)
+       {
+        title
+        path
+        content
+      }
+  }
+</page-query>
+
 <script>
-import Photo from "../../components/Photo.vue";
-import Footer from "../../components/Footer.vue";
+import Photo from "../components/Photo.vue";
+import Footer from "../components/Footer.vue";
 import axios from 'axios';
 
 export default {
@@ -60,6 +75,13 @@ export default {
     Footer,
   },
   methods: {
+    setSpans(image) {
+      try {
+        const height = image.clientHeight;
+        const spans = Math.ceil(height / 10 + 4);
+        image.style.gridRowEnd = 'span '+ spans 
+      } catch {}
+    },
     openImage(e) {
       this.selectedPhotoIndex = e;
     },
@@ -96,14 +118,36 @@ export default {
     },
     category(){
       return process.isClient ? this.$route.query.category: "/";
-    } 
+    },
+    portfolioPhotosDiv(){
+      return document.querySelector('#portfolio-photos-markdown')
+    },
+    portfolioPhotos(){
+      return this.portfolioPhotosDiv ? this.portfolioPhotosDiv.querySelectorAll('img') : null
+    }
   },
   watch:{
     category(){
       location.reload();
-    }
+    },
+  },
+  created(){
+    let imageString = this.$page.images.content;
+    imageString = imageString.replace('<p>','').replace('</p>','').split(/\n/ig)
+    this.photos = imageString;
+    // console.log()
   },
   async mounted() {
+    // if (!this.category) {
+    //   Object.keys(this.allCategories)
+    //     .map(key => this.allCategories[key])
+    //     .forEach(category => {
+    //       this.getPhotosFromAws(category);
+    //     });
+    //   this.photos = this.photos.sort();
+    // } else {
+    //   await this.getPhotosFromAws(this.allCategories[this.category]);
+    // }
     document.addEventListener("contextmenu", e => {
       e.preventDefault();
       const copyright = document.querySelector("#copyright");
@@ -161,6 +205,13 @@ export default {
 
 .loading-image {
   min-width: 33%;
+}
+
+#portfolio-photos-markdown{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(25vw,1fr));
+  grid-auto-rows:10px;
+  padding:2em;
 }
 
 @media only screen and (max-width: 900px) {

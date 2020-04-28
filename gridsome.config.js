@@ -43,6 +43,18 @@ module.exports = {
       {
         use: '@gridsome/source-filesystem',
         options: {
+          path: 'portfolio/*.md',
+          typeName: 'Portfolio',
+          remark: {
+            plugins: [
+              // ...local plugins
+            ]
+          }
+        }
+      },
+      {
+        use: '@gridsome/source-filesystem',
+        options: {
           path: 'pricing/events/*.md',
           typeName: 'Pricing_events',
           remark: {

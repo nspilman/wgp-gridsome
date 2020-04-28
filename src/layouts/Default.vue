@@ -27,21 +27,6 @@ query {
 
 <script>
 export default {
-  watch:{
-    route(){
-      router.push(this.route)
-      location.reload();
-      console.log(this.$route)
-    }
-  },
-  computed:{
-    route(){
-        return process.isClient ? this.$route.path: "/";
-    }
-  },
-  created(){
-    console.log(this.$route)
-  }
 }
 </script>
 
