@@ -4,14 +4,14 @@
       <a href="/">
         <g-image
           src="../assets/images/wineguy_photos/wineguy_logo.png"
-          :style="{'maxHeight': '10vh', 'maxWidth': '20vw'}"
+          :style="{'maxHeight': '10vh', 'maxWidth': '40vw'}"
           alt="Wine Guy Photography Logo"
         />
       </a>
       <div id="nav-wrapper">
         <ul v-for="link in nav" :key="link.title">
           <li v-if="!link.children" class="top-level-item">
-            <a :to="link.link">{{link.title}}</a>
+            <g-link :to="link.link">{{link.title}}</g-link>
           </li>
           <Dropdown v-else :title="link.title" :items="link.children" />
         </ul>
@@ -22,7 +22,7 @@
       <div v-if="hamburgerOn" id="hamburger_dropdown">
         <ul  v-for="link in nav" :key="link.title">
           <li v-if="!link.children" class="top-level-item">
-            <a :href="link.link">{{link.title}}</a>
+            <g-link :href="link.link">{{link.title}}</g-link>
           </li>
           <Dropdown v-else :title="link.title" :items="link.children" />
         </ul>
