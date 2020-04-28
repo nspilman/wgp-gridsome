@@ -31,6 +31,7 @@ export default {
     route(){
       router.push(this.$route)
       location.reload();
+      console.log(this.$route)
     }
   },
   computed:{
