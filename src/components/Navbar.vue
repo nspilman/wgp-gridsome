@@ -11,7 +11,7 @@
       <div id="nav-wrapper">
         <ul v-for="link in nav" :key="link.title">
           <li v-if="!link.children" class="top-level-item">
-            <g-link :to="link.link">{{link.title}}</g-link>
+            <a :to="link.link">{{link.title}}</a>
           </li>
           <Dropdown v-else :title="link.title" :items="link.children" />
         </ul>
@@ -22,7 +22,7 @@
       <div v-if="hamburgerOn" id="hamburger_dropdown">
         <ul  v-for="link in nav" :key="link.title">
           <li v-if="!link.children" class="top-level-item">
-            <g-link :href="link.link">{{link.title}}</g-link>
+            <a :href="link.link">{{link.title}}</a>
           </li>
           <Dropdown v-else :title="link.title" :items="link.children" />
         </ul>
