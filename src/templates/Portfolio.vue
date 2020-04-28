@@ -9,13 +9,16 @@
             <!-- <Loading v-if="isLoading" /> -->
             <div class="post-content">
               <div v-if="selectedPhoto" class="photoModalWrapper" @click="closeImage">
-                <div class="photoModal">
-                  <g-image :src="selectedPhoto" alt="photograph" />
-                </div>
+                <div class="photoModal" v-html="selectedPhoto">
+              </div>
               </div>
               <div id="portfolio-photos-markdown">
-              <Photo v-for="(photo,index) in photos" :photoMarkdown="photo" :index="index" :key="photo"/>
-
+              <Photo 
+              @opened-image="openImage"
+              v-for="(photo,index) in photos" 
+              :photoMarkdown="photo" 
+              :index="index" 
+              :key="photo"/>
               </div>
               <!-- <Photo
                 @opened-image="openImage"
@@ -58,9 +61,8 @@ export default {
   data() {
     return {
       photos: [],
-      selectedPhotoIndex: null,
       isLoading: true,
-      imageLoaded: 0,
+      selectedPhoto:null,
       allCategories: {
         weddings: "photos-wedding",
         events: "photos-event",
@@ -83,10 +85,10 @@ export default {
       } catch {}
     },
     openImage(e) {
-      this.selectedPhotoIndex = e;
+      this.selectedPhoto = e;
     },
     closeImage() {
-      this.selectedPhotoIndex = null;
+      this.selectedPhoto = null;
     },
     loadPhotos() {
       this.photos.forEach(photo => {
@@ -113,21 +115,18 @@ export default {
       }
   },
   computed: {
-    selectedPhoto() {
-      return this.photos[this.selectedPhotoIndex];
-    },
-    category(){
-      return process.isClient ? this.$route.query.category: "/";
-    },
     portfolioPhotosDiv(){
       return document.querySelector('#portfolio-photos-markdown')
     },
     portfolioPhotos(){
       return this.portfolioPhotosDiv ? this.portfolioPhotosDiv.querySelectorAll('img') : null
+    },
+    page(){
+      return this.$page.images.title
     }
   },
   watch:{
-    category(){
+    page(){
       location.reload();
     },
   },
@@ -191,7 +190,7 @@ export default {
   z-index: 3;
 }
 .photoModal img {
-  max-width: 90vw;
+  width:auto;
   max-height: 90vh;
   padding-top: 2em;
 }

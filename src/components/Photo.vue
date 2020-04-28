@@ -26,19 +26,6 @@ mounted() {
    this.setSpans()
   })
 },
-  computed:{
-    imageRef(){
-      return this.$refs.imageRef
-    }
-  },
-  watch:{
-    imageRef(){
-      console.log('hi')
-      if(imageRef){
-        console.log("im alive")
-      }
-    }
-  },
   // computed: {
   //   photoName() {
   //     const urlFirstSection = this.filepath.split("?")[0];
@@ -52,7 +39,7 @@ mounted() {
   // },
   methods: {
     sendOpenImageMessageToParent() {
-      this.$emit("opened-image", {index:this.index,photoName:this.photoName});
+      this.$emit("opened-image", this.photoMarkdown);
     },
     setSpans() {
       const { imageRef } = this.$refs;
