@@ -29,6 +29,7 @@ query {
 export default {
   watch:{
     route(){
+      router.push(this.$route)
       location.reload();
     }
   },
