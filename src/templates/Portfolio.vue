@@ -20,16 +20,6 @@
               :index="index" 
               :key="photo"/>
               </div>
-              <!-- <Photo
-                @opened-image="openImage"
-                v-for="(photo,index) in photos"
-                :index="index"
-                :key="index"
-                :filepath="photo"
-              /> -->
-              <!-- <div class="loading">
-                <h1>Loading</h1>
-              </div> -->
             </div>
           </div>
         </div>
@@ -61,15 +51,7 @@ export default {
   data() {
     return {
       photos: [],
-      isLoading: true,
       selectedPhoto:null,
-      allCategories: {
-        weddings: "photos-wedding",
-        events: "photos-event",
-        family: "photos-family",
-        seniors: "photos-senior",
-        aerial: "photos-aerial",
-      },
     };
   },
   components: {
@@ -115,9 +97,6 @@ export default {
       }
   },
   computed: {
-    portfolioPhotosDiv(){
-      return document.querySelector('#portfolio-photos-markdown')
-    },
     portfolioPhotos(){
       return this.portfolioPhotosDiv ? this.portfolioPhotosDiv.querySelectorAll('img') : null
     },
@@ -214,7 +193,7 @@ export default {
 }
 
 @media only screen and (max-width: 900px) {
-#portfolio-photos{
+#portfolio-photos-markdown{
   display:flex;
   flex-direction: column;
   padding:2em;

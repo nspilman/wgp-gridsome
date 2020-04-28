@@ -99,7 +99,7 @@ export default {
 }
 
 .ts-item-background img{
-max-height: 100vh;
+height: 100vh;
 width:auto;
 }
 </style>
