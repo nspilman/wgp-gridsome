@@ -21,7 +21,7 @@ def resizeImage(imagePath,idealSize):
     imageSizeProduct = image.size[0] * image.size[1]
     if idealSizeProduct < imageSizeProduct:
         ratio = idealSizeProduct / imageSizeProduct
-        newsize = (int(image.size[0] * ratio) , int(image.size[1] * ratio))
+        newsize = (int(image.size[0] * ratio), int(image.size[1] * ratio))
         newImage = image.resize(newsize)
         newImage.save(imagePath)
     else:
