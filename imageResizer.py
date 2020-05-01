@@ -27,11 +27,17 @@ def resizeImage(imagePath,idealSize):
     else:
         print('smaller')
 
+
+
 # goalsize = 400
 # wellSizedImages = [image for image in allPhotos if isCloseTo((os.stat(image).st_size/1000),goalsize, 10)]
-allPhotos = os.listdir("./src/assets/images/wineguy_photos/")
-for image in allPhotos:
-    resizeImage(f"./src/assets/images/wineguy_photos/{image}",idealSize)
+# allPhotos = os.listdir("./src/assets/images/wineguy_photos/")
+image_path = "./src/assets/images/wineguy_photos/services_background.jpeg"
+image = Image.open(image_path)
+image = image.resize(([int(size * .6) for size in image.size]))
+image.save(image_path)
+# for image in allPhotos:
+    # resizeImage(f"./src/assets/images/wineguy_photos/{image}",idealSize)
 # print(wellSizedImages)
 
 # imageSizes = sorted([os.stat(image).st_size / 1000 for image in allPhotos])
