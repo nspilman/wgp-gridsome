@@ -1,13 +1,13 @@
 <template>
   <div id="main">
     <div id="nav">
-      <a href="/">
+      <g-link to="/">
         <g-image
           src="../assets/images/wineguy_photos/wineguy_logo.png"
           :style="{'maxHeight': '10vh', 'maxWidth': '20vw'}"
           alt="Wine Guy Photography Logo"
         />
-      </a>
+      </g-link>
       <div id="nav-wrapper">
         <ul v-for="link in nav" :key="link.title">
           <li v-if="!link.children" class="top-level-item">

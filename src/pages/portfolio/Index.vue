@@ -6,8 +6,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-12" id="portfolio-photos-wrapper">
-            <Loading v-if="isLoading" />
-            <div class="post-content" id="portfolio-photos" v-if="!isLoading">
+            <div class="post-content" id="portfolio-photos">
               <div v-if="selectedPhoto" class="photoModalWrapper" @click="closeImage">
                 <div class="photoModal">
                   <g-image :src="selectedPhoto" alt="photograph" />
@@ -20,9 +19,6 @@
                 :key="index"
                 :filepath="photo"
               />
-              <div class="loading">
-                <h1>Loading</h1>
-              </div>
             </div>
           </div>
         </div>
@@ -44,7 +40,6 @@ export default {
     return {
       photos: [],
       selectedPhotoIndex: null,
-      isLoading: true,
       imageLoaded: 0,
       allCategories: {
         weddings: "photos-wedding",
