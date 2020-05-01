@@ -55,8 +55,8 @@ module.exports = {
       {
         use: '@gridsome/source-filesystem',
         options: {
-          path: 'pricing/events/*.md',
-          typeName: 'Pricing_events',
+          path: 'content/Pricing/*.md',
+          typeName: 'Pricing',
           remark: {
             plugins: [
               // ...local plugins
@@ -67,8 +67,8 @@ module.exports = {
       {
         use: '@gridsome/source-filesystem',
         options: {
-          path: 'content/Pricing/*.md',
-          typeName: 'Pricing',
+          path: '/clientlove/*.md',
+          typeName: 'Clientlove',
           remark: {
             plugins: [
               // ...local plugins

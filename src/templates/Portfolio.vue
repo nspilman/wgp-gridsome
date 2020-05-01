@@ -5,6 +5,7 @@
     <section class="section-blog-massory">
       <div class="container">
         <div class="row">
+          <div v-for="string in text" v-html="string" :key="string"/>
           <div class="col-md-12" id="portfolio-photos-wrapper">
             <!-- <Loading v-if="isLoading" /> -->
             <div class="post-content">
@@ -15,10 +16,10 @@
               <div id="portfolio-photos-markdown">
               <Photo 
               @opened-image="openImage"
-              v-for="(photo,index) in photos" 
-              :photoMarkdown="photo" 
+              v-for="(photo,index) in photosWithNames" 
+              :markup="photo" 
               :index="index" 
-              :key="photo"/>
+              :key="index"/>
               </div>
             </div>
           </div>
@@ -37,6 +38,7 @@ images:portfolio(path:$path)
         title
         path
         content
+        showImageTitles
       }
   }
 </page-query>
@@ -52,6 +54,7 @@ export default {
     return {
       photos: [],
       selectedPhoto:null,
+      text:'',
     };
   },
   components: {
@@ -72,36 +75,20 @@ export default {
     closeImage() {
       this.selectedPhoto = null;
     },
-    loadPhotos() {
-      this.photos.forEach(photo => {
-        const img = new Image();
-        img.src = photo;
-        img.onload = () => {
-          this.imageLoaded = this.imageLoaded + 1;
-          if (this.imageLoaded > 6) {
-            this.isLoading = false;
-          }
-        };
-      });
-    },
-    async getPhotosFromAws(portfolioCategory) {
-      if(process.isClient){
-      const url = `https://py5e37ug41.execute-api.us-east-1.amazonaws.com/default/getPhotosByName?category=${portfolioCategory}`;
-      const resp = await axios.get(url);
-      const json = await resp.data;
-      for (let i = 1; i < json.length; i += 1) {
-        this.photos.push(json[i]);
-      }
-      this.loadPhotos();
+    getPhotoName(fullImgTagString){
+      const photoName = fullImgTagString.split(".jpg?")[0].split('/').pop().replace(/-/gi,' ')
+      return photoName
     }
-      }
   },
   computed: {
-    portfolioPhotos(){
-      return this.portfolioPhotosDiv ? this.portfolioPhotosDiv.querySelectorAll('img') : null
-    },
     page(){
       return this.$page.images.title
+    },
+    photosWithNames(){
+      if(this.$page.images.showImageTitles){
+        return this.photos.map(photo => photo + `<h4>${this.getPhotoName(photo)}</h4>`)
+      }
+      return this.photos;
     }
   },
   watch:{
@@ -110,22 +97,15 @@ export default {
     },
   },
   created(){
-    let imageString = this.$page.images.content;
-    imageString = imageString.replace('<p>','').replace('</p>','').split(/\n/ig)
-    this.photos = imageString;
-    // console.log()
+    const content = this.$page.images.content;
+    const paragraphTags = content.replace('<p>','').replace('</p>','').split(/\n/ig);
+    const imageTagIdentifiedString = "<img class=";
+    const imageStrings = paragraphTags.filter(tag => tag.includes(imageTagIdentifiedString))
+    const textStrings = paragraphTags.filter(tag => !tag.includes(imageTagIdentifiedString))
+    this.photos = imageStrings;
+    this.text = textStrings;
   },
   async mounted() {
-    // if (!this.category) {
-    //   Object.keys(this.allCategories)
-    //     .map(key => this.allCategories[key])
-    //     .forEach(category => {
-    //       this.getPhotosFromAws(category);
-    //     });
-    //   this.photos = this.photos.sort();
-    // } else {
-    //   await this.getPhotosFromAws(this.allCategories[this.category]);
-    // }
     document.addEventListener("contextmenu", e => {
       e.preventDefault();
       const copyright = document.querySelector("#copyright");

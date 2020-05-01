@@ -1,5 +1,7 @@
 ---
 title: seniors
+showImageTitles: false 
+
 ---
 
 ![senior photos](../uploads/seniors/DSC_9717-copy.jpg)

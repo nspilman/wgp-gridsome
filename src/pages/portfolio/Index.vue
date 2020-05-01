@@ -66,29 +66,6 @@ export default {
     closeImage() {
       this.selectedPhotoIndex = null;
     },
-    loadPhotos() {
-      this.photos.forEach(photo => {
-        const img = new Image();
-        img.src = photo;
-        img.onload = () => {
-          this.imageLoaded = this.imageLoaded + 1;
-          if (this.imageLoaded > 6) {
-            this.isLoading = false;
-          }
-        };
-      });
-    },
-    async getPhotosFromAws(portfolioCategory) {
-      if(process.isClient){
-      const url = `https://py5e37ug41.execute-api.us-east-1.amazonaws.com/default/getPhotosByName?category=${portfolioCategory}`;
-      const resp = await axios.get(url);
-      const json = await resp.data;
-      for (let i = 1; i < json.length; i += 1) {
-        this.photos.push(json[i]);
-      }
-      this.loadPhotos();
-    }
-      }
   },
   computed: {
     selectedPhoto() {

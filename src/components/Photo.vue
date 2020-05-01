@@ -1,19 +1,15 @@
 <template>
-  <!-- <span class="portfolio-image store-image"> -->
     <div class="photo-box" :style="{gridRowEnd:'span '+ spans, margin:'1em' }"
-    v-html ="photoMarkdown"
+    v-html ="markup"
       @click="sendOpenImageMessageToParent"
       ref="imageRef"
-    />
-    <!-- <h4 v-if="showtitle" class="store-photo-name">
-      {{photoName}}
-    </h4> -->
-  <!-- </span> -->
+    >
+    </div>
 </template>
 
 <script>
 export default {
-  props: ["photoMarkdown", "index", "showtitle",'filepath'],
+  props: ["markup", "index", "showtitle",'name'],
   data() {
     return {
       spans: 0,
@@ -26,26 +22,15 @@ mounted() {
    this.setSpans()
   })
 },
-  // computed: {
-  //   photoName() {
-  //     const urlFirstSection = this.filepath.split("?")[0];
-  //     const urlFirstSectionSlashSplit = urlFirstSection.split("/");
-  //     const photoNameRaw =urlFirstSectionSlashSplit[urlFirstSectionSlashSplit.length - 1];
-  //     const photoNameRawWithoutImageExtension = photoNameRaw.split(".")[0];
-
-  //     var findDashRegexp = new RegExp("-", "g");
-  //     return photoNameRawWithoutImageExtension.replace(findDashRegexp, " ");
-  //   }
-  // },
   methods: {
     sendOpenImageMessageToParent() {
-      this.$emit("opened-image", this.photoMarkdown);
+      this.$emit("opened-image", this.markup);
     },
     setSpans() {
       const { imageRef } = this.$refs;
       try {
         const height = imageRef.children[0].clientHeight;
-        const spans = Math.ceil(height / 10 + 4);
+        const spans = Math.ceil(height / 10 + 6);
         this.spans = spans;
       } catch {}
     }

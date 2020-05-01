@@ -1,5 +1,7 @@
 ---
 title: homepage
+showImageTitles: false 
+
 ---
 
 ![homepage photos](../uploads/homepage/DSC_4096.jpg)

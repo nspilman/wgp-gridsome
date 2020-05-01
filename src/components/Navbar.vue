@@ -110,7 +110,7 @@ export default {
         },
         {
           title: "Store",
-          link: "/store"
+          link: "/portfolio/store"
         },
         {
           title: "Contact",

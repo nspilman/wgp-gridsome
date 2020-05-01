@@ -1,5 +1,6 @@
 ---
 title: weddings
+showImageTitles: false
 ---
 
 ![wedding photos](../uploads/weddings/DSC_1387%20copy%202.jpg)
