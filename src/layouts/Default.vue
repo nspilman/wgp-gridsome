@@ -27,6 +27,17 @@ query {
 
 <script>
 export default {
+watch:{
+  currentRoute(){
+    console.log('reloading')
+    location.reload()
+  }
+},
+  computed:{
+    currentRoute(){
+      return this.$router.currentRoute.path
+    }
+  }
 }
 </script>
 
