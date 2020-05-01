@@ -14,7 +14,7 @@ for directory in subdirectories:
 def isCloseTo(val1,val2, threshold):
     return abs(val1-val2) < threshold
 
-idealSize = (2100, 1118)
+idealSize = (1100, 500)
 def resizeImage(imagePath,idealSize):
     idealSizeProduct = idealSize[0] * idealSize[1]
     image = Image.open(imagePath)
@@ -27,10 +27,11 @@ def resizeImage(imagePath,idealSize):
     else:
         print('smaller')
 
-goalsize = 400
-wellSizedImages = [image for image in allPhotos if isCloseTo((os.stat(image).st_size/1000),goalsize, 10)]
+# goalsize = 400
+# wellSizedImages = [image for image in allPhotos if isCloseTo((os.stat(image).st_size/1000),goalsize, 10)]
+allPhotos = os.listdir("./src/assets/images/wineguy_photos/")
 for image in allPhotos:
-    resizeImage(image,idealSize)
+    resizeImage(f"./src/assets/images/wineguy_photos/{image}",idealSize)
 # print(wellSizedImages)
 
 # imageSizes = sorted([os.stat(image).st_size / 1000 for image in allPhotos])
