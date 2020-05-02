@@ -1,6 +1,6 @@
 <template>
   <header id="header" class="header-v2">
-    <Menu/>
+    <Navbar/>
     <div class="header">
       <div class="header-slider" style="margin-top:0px;">
         <div
@@ -42,7 +42,7 @@ query Content {
 </static-query>
 
 <script>
-import Menu from './Navbar.vue';
+// import Menu from './newNav.vue';
 import axios from 'axios';
 
 export default {
@@ -55,7 +55,7 @@ export default {
     };
   },
   components: {
-    Menu,
+    // Menu,
   },
   computed: {
     currentPhoto() {

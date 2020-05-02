@@ -5,7 +5,7 @@ showImageTitles: false
 ---
 
 ![senior photos](../uploads/seniors/DSC_9717-copy.jpg)
-<!-- ![senior photos](../uploads/seniors/Simeon-for-Website-07-copy.jpg)
+![senior photos](../uploads/seniors/Simeon-for-Website-07-copy.jpg)
 ![senior photos](../uploads/seniors/Emmy-Wiedemann-Final-Edits-56-copy.jpg)
 ![senior photos](../uploads/seniors/DSC_5883-copy.jpg)
 ![senior photos](../uploads/seniors/DSC_4906-copy.jpg)
@@ -35,4 +35,4 @@ showImageTitles: false
 ![senior photos](../uploads/seniors/Emmy-Wiedemann-Final-Edits-44-copy.jpg)
 ![senior photos](../uploads/seniors/Eli-for-Website-08-copy.jpg)
 ![senior photos](../uploads/seniors/DSC_7668-copy.jpg)
-![senior photos](../uploads/seniors/DSC_8043-copy.jpg) -->
+![senior photos](../uploads/seniors/DSC_8043-copy.jpg)

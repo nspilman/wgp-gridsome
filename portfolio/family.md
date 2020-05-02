@@ -6,7 +6,7 @@ showImageTitles: false
 
 ![family photos](../uploads/family/Ajoelito%20tractor%20leaves%20sun%20copy.jpg)
 ![family photos](../uploads/family/DSC_6636-2%20copy.jpg)
-<!-- ![family photos](../uploads/family/DSC_4081.jpg)
+![family photos](../uploads/family/DSC_4081.jpg)
 ![family photos](../uploads/family/agirl3.jpg)
 ![family photos](../uploads/family/amomanddaughter.jpg)
 ![family photos](../uploads/family/agirl2.jpg)
@@ -39,4 +39,4 @@ showImageTitles: false
 ![family photos](../uploads/family/DSC_2716%20copy.jpg)
 ![family photos](../uploads/family/DSC_8829-copy.jpg)
 ![family photos](../uploads/family/BoysAlbumCoverSunflowerscopy.jpg)
-![family photos](../uploads/family/Photo-May-19%2C-1-11-56-PM-copy.jpg) -->
+![family photos](../uploads/family/Photo-May-19%2C-1-11-56-PM-copy.jpg)

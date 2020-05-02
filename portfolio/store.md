@@ -15,7 +15,7 @@ Popular sizes Canvas (Standard) - 11 x 14 ($100), 16 x 20 ($195), 24 x 36 ($455)
 Popular sizes Canvas (Panorama) - 12 x 24 ($175), 20 x 40 ($485)"
 
 ![store photos](../uploads/store/Nature-Loon-Family-Swim.jpg)
-<!-- ![store photos](../uploads/store/City-Piazza-San-Marco-Wedding.jpg)
+![store photos](../uploads/store/City-Piazza-San-Marco-Wedding.jpg)
 ![store photos](../uploads/store/City-Eiffel-Tower-Dusk.jpg)
 ![store photos](../uploads/store/Nature-Winter-Robin.jpg)
 ![store photos](../uploads/store/Nature-Red-Alert-Ostrich.jpg)
@@ -53,4 +53,4 @@ Popular sizes Canvas (Panorama) - 12 x 24 ($175), 20 x 40 ($485)"
 ![store photos](../uploads/store/Nature-Bald-Eagle-Liftoff.jpg)
 ![store photos](../uploads/store/Nature-Cows-Grazing.jpg)
 ![store photos](../uploads/store/City-ile-de-la-cite-at-sunrise.jpg)
-![store photos](../uploads/store/City-Capitol-Tulips.jpg) -->
+![store photos](../uploads/store/City-Capitol-Tulips.jpg)

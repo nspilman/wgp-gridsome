@@ -1,125 +1,147 @@
 <template>
-  <div id="main">
-    <div id="nav">
-      <g-link to="/">
-        <g-image
-          src="../assets/images/wineguy_photos/wineguy_logo.png"
-          :style="{'maxHeight': '10vh', 'maxWidth': '20vw'}"
-          alt="Wine Guy Photography Logo"
-        />
-      </g-link>
-      <div id="nav-wrapper">
-        <ul v-for="link in nav" :key="link.title">
-          <li v-if="!link.children" class="top-level-item">
-            <g-link :to="link.link">{{link.title}}</g-link>
-          </li>
-          <Dropdown v-else :title="link.title" :items="link.children" />
-        </ul>
-      </div>
-          <div id="mobile-nav">
-      <g-image :src="hamburgerIcon" id="hamburgerIcon" @click="hamburgerOn = !hamburgerOn" alt="mobile menu"/>
-      <!-- <transition name="fade"> -->
-      <div v-if="hamburgerOn" id="hamburger_dropdown">
-        <ul  v-for="link in nav" :key="link.title">
-          <li v-if="!link.children" class="top-level-item">
-            <g-link :href="link.link">{{link.title}}</g-link>
-          </li>
-          <Dropdown v-else :title="link.title" :items="link.children" />
-        </ul>
-      </div>
-      <!-- </transition> -->
-    </div>
-    </div>
-  </div>
+  <vue-navigation-bar :options="navbarOptions" />
 </template>
 
 <script>
 import Dropdown from "./Dropdown.vue";
 import hamburgerIcon from "../assets/images/Hamburger_icon.svg";
+import VueNavigationBar from "vue-navigation-bar";
+import logo from "../assets/images/wineguy_photos/wineguy_logo.png";
 export default {
   name: "navbar",
   components: {
-    Dropdown
+    Dropdown,
+    VueNavigationBar
   },
   data() {
     return {
-      nav: [
-        {
-          title: "Home",
-          link: "/"
-        },
-        {
-          title: "Services",
-          link: "/#services"
-        },
-        {
-          title: "Portfolio",
-          link: "#",
-          children: [
-            {
-              title: "Wedding Photos",
-              link: "/portfolio/weddings"
-            },
-            {
-              title: "Family Photos",
-              link: "/portfolio/family"
-            },
-            {
-              title: "Event Photos",
-              link: "/portfolio/events"
-            },
-            {
-              title: "Senior Photos",
-              link: "/portfolio/seniors"
-            },
-            {
-              title: "Aerial Photos",
-              link: "/portfolio/aerial"
-            }
-          ]
-        },
-        {
-          title: "Pricing",
-          link: "#",
-          children: [
-            {
-              title: "Wedding Photos",
-              link: "/pricing?category=weddings"
-            },
-            {
-              title: "Family Photos",
-              link: "/pricing?category=family"
-            },
-            {
-              title: "Event Photos",
-              link: "/pricing?category=events"
-            },
-            {
-              title: "Senior Photos",
-              link: "/pricing?category=seniors"
-            },
-            {
-              title: "Aerial Photos",
-              link: "/pricing?category=aerial"
-            }
-          ]
-        },
-        {
-          title: "Client Love",
-          link: "/client-love"
-        },
-        {
-          title: "Store",
-          link: "/portfolio/store"
-        },
-        {
-          title: "Contact",
-          link: "#contact"
-        }
-      ],
-      windowWidth: process.isClient ? window.innerWidth : 0,
-      hamburgerIcon,
-      hamburgerOn: false
+      navbarOptions: {
+        elementId: "main-navbar",
+        isUsingVueRouter: true,
+        mobileBreakpoint: 992,
+        brandImagePath: "",
+        brandImage: logo,
+        brandImageAltText: "brand-image",
+        collapseButtonImageOpen: "",
+        collapseButtonImageClose: "",
+        showBrandImageInMobilePopup: false,
+        ariaLabelMainNav: "Main Navigation",
+        menuOptionsRight: [
+          {
+            type: "link",
+            text: "Portfolio",
+            iconLeft: "",
+            subMenuOptions: [
+              {
+                type: "link",
+                text: "Wedding Photos",
+                path: "/portfolio/weddings"
+                // iconLeft: '<svg id="i-info" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"> <path d="M16 14 L16 23 M16 8 L16 10" /> <circle cx="16" cy="16" r="14" /> </svg>',
+              },
+              {
+                type: "hr"
+              },
+              {
+                type: "link",
+                text: "Family Photos",
+                path: "/portfolio/family"
+                // iconLeft: '<svg id="i-info" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"> <path d="M16 14 L16 23 M16 8 L16 10" /> <circle cx="16" cy="16" r="14" /> </svg>',
+              },
+              {
+                type: "hr"
+              },
+              {
+                type: "link",
+                text: "Event Photos",
+                path: "/portfolio/events"
+                // iconLeft: '<svg id="i-info" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"> <path d="M16 14 L16 23 M16 8 L16 10" /> <circle cx="16" cy="16" r="14" /> </svg>',
+              },
+              {
+                type: "hr"
+              },
+              {
+                type: "link",
+                text: "Senior Photos",
+                path: "/portfolio/seniors"
+                // iconLeft: '<svg id="i-info" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"> <path d="M16 14 L16 23 M16 8 L16 10" /> <circle cx="16" cy="16" r="14" /> </svg>',
+              },
+              {
+                type: "hr"
+              },
+              {
+                type: "link",
+                text: "Aerial Photos",
+                path: "/portfolio/aerial"
+                // iconLeft: '<svg id="i-info" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"> <path d="M16 14 L16 23 M16 8 L16 10" /> <circle cx="16" cy="16" r="14" /> </svg>',
+              }
+            ]
+          },
+          {
+            type: "link",
+            text: "Pricing",
+            iconLeft: "",
+            subMenuOptions: [
+              {
+                type: "link",
+                text: "Wedding Pricing",
+                path: "./pricing/weddings"
+                // iconLeft: '<svg id="i-info" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"> <path d="M16 14 L16 23 M16 8 L16 10" /> <circle cx="16" cy="16" r="14" /> </svg>',
+              },
+              {
+                type: "hr"
+              },
+              {
+                type: "link",
+                text: "Family Pricing",
+                path: "./pricing/family"
+                // iconLeft: '<svg id="i-info" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"> <path d="M16 14 L16 23 M16 8 L16 10" /> <circle cx="16" cy="16" r="14" /> </svg>',
+              },
+              {
+                type: "hr"
+              },
+              {
+                type: "link",
+                text: "Event Pricing",
+                path: "./pricing/events"
+                // iconLeft: '<svg id="i-info" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"> <path d="M16 14 L16 23 M16 8 L16 10" /> <circle cx="16" cy="16" r="14" /> </svg>',
+              },
+              {
+                type: "hr"
+              },
+              {
+                type: "link",
+                text: "Senior Pricing",
+                path: "./pricing/seniors"
+                // iconLeft: '<svg id="i-info" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"> <path d="M16 14 L16 23 M16 8 L16 10" /> <circle cx="16" cy="16" r="14" /> </svg>',
+              },
+              {
+                type: "hr"
+              },
+              {
+                type: "link",
+                text: "Aerial Pricing",
+                path: "./pricing/aerial"
+                // iconLeft: '<svg id="i-info" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"> <path d="M16 14 L16 23 M16 8 L16 10" /> <circle cx="16" cy="16" r="14" /> </svg>',
+              }
+            ]
+          },
+          {
+            type: "link",
+            text: "Client Love",
+            path: "./client-love",
+          },
+             {
+            type: "link",
+            text: "Store",
+            path: "/portfolio/store",
+          },
+              {
+            type: "link",
+            text: "Contact",
+            path: "#contact",
+          },
+        ]
+      }
     };
   }
 };

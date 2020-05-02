@@ -12,6 +12,7 @@
     "axios": "^0.19.2",
     "gridsome": "^0.7.0",
     "gridsome-plugin-netlify-cms": "^1.0.9",
-    "netlify-cms": "^2.10.47"
+    "netlify-cms": "^2.10.47",
+    "vue-navigation-bar": "^2.0.0"
   }
 }

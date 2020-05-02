@@ -15,6 +15,7 @@ query {
 <style>
 @import url('../assets/css/bootstrap.css');
 /* @import url('../assets/css/font-awesome.css'); */
+@import url('https://unpkg.com/vue-navigation-bar@1.0.9/dist/vue-navigation-bar.css');
 @import url('../assets/css/font.css');
 @import url('../assets/css/magnific-popup.css');
 @import url('../assets/css/owl.carousel.css');
