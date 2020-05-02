@@ -58,23 +58,23 @@ export default {
           children: [
             {
               title: "Wedding Photos",
-              link: "/portfolio/weddings"
+              link: "#weddings-portfolio"
             },
             {
               title: "Family Photos",
-              link: "/portfolio/family"
+              link: "#family-portfolio"
             },
             {
               title: "Event Photos",
-              link: "/portfolio/events"
+              link: "#events-portfolio"
             },
             {
               title: "Senior Photos",
-              link: "/portfolio/seniors"
+              link: "#seniors-portfolio"
             },
             {
               title: "Aerial Photos",
-              link: "/portfolio/aerial"
+              link: "#aerial-portfolio"
             }
           ]
         },
