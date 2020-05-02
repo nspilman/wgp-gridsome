@@ -62,7 +62,7 @@ export default {
       return this.homepagePhotos[this.currentPhotoIndex];
     },
     homepagePhotos(){
-      return this.$static.images.edges.map(edge => edge.node).filter(edge => edge.title == 'homepage')[0].content.replace('<p>','').replace('</p>','').split(/\n/ig);
+      return this.$static.images.edges.map(edge => edge.node).filter(edge => edge.title == 'homepage')[0].content.replace('<p>','').replace('</p>','').split(/\n/ig).map(photo => photo.split('<noscript>')[0]);
     }
   },
   methods: {
