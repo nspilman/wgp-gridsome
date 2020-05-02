@@ -3,7 +3,7 @@
     <span class="dropdown-body">
       <span class="dropdown-section-title">
         {{title}}
-        <p class="dropdown-tag">&#9660;</p>
+        <span class="dropdown-tag">&#9660;</span>
       </span>
         <span class="child-group">
           <g-link :to="item.link" v-for="item in items" :key="item.title" class="child">
