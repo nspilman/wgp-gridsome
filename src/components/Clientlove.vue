@@ -1,5 +1,5 @@
 <template>
-<section id="testimonials" class="section section-history">
+<section id="client-love" class="section section-history">
   <Loading v-if="isLoading"/>
     <div class="container" v-for="testimonial in testimonials" :key="testimonial.url">
         <div class="row">

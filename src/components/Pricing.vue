@@ -1,6 +1,6 @@
 <template>
   <section
-    id="services"
+    :id="`${category}-pricing`"
     class="section section-img img-half section-services"
     style="min-height:150vh"
   >

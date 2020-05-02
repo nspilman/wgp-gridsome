@@ -84,33 +84,33 @@ export default {
           children: [
             {
               title: "Wedding Photos",
-              link: "/pricing?category=weddings"
+              link: "#weddings-pricing"
             },
             {
               title: "Family Photos",
-              link: "/pricing?category=family"
+              link: "#family-pricing"
             },
             {
               title: "Event Photos",
-              link: "/pricing?category=events"
+              link: "#events-pricing"
             },
             {
               title: "Senior Photos",
-              link: "/pricing?category=seniors"
+              link: "#seniors-pricing"
             },
             {
               title: "Aerial Photos",
-              link: "/pricing?category=aerial"
+              link: "#aerial-pricing"
             }
           ]
         },
         {
           title: "Client Love",
-          link: "/client-love"
+          link: "#client-love"
         },
         {
           title: "Store",
-          link: "/portfolio/store"
+          link: "#store-portfolio"
         },
         {
           title: "Contact",
