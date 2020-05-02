@@ -7,12 +7,12 @@
         >
           <div class="history-logo">
             <div class="frame-img">
-              <g-image src="../assets/images/wineguy_photos/wineguy_about.jpg" alt="logo" />
+              <g-image src="../assets/images/wineguy_photos/wineguy_about.jpg" alt="logo" width="400"/>
             </div>
           </div>
         </div>
         <div class="col-sm-7 col-xs-12">
-          <div class="section-title title-sty2">
+          <div class="section-title title-style2">
             <h3 class="h3 bor-underline">About</h3>
           </div>
           <div class="section-content content-italic" v-html="content[0].content">

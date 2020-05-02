@@ -1,21 +1,17 @@
 <template>
-  <li class="top-level-item parent">
-    <ul class="dropdown-body">
-      <li class="dropdown-section-title">
+  <span class="top-level-item parent">
+    <span class="dropdown-body">
+      <span class="dropdown-section-title">
         {{title}}
         <p class="dropdown-tag">&#9660;</p>
-      </li>
-      <li class="dropdown-children">
-        <ul class="child-group">
-          <g-link :to="item.link" v-for="item in items" :key="item.title">
-          <li class="child">
+      </span>
+        <span class="child-group">
+          <g-link :to="item.link" v-for="item in items" :key="item.title" class="child">
             {{item.title}}
-          </li>
           </g-link>
-        </ul>
-      </li>
-    </ul>
-  </li>
+        </span>
+    </span>
+  </span>
 </template>
 
 <script>

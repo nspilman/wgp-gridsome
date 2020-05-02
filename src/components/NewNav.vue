@@ -9,12 +9,10 @@
         />
       </g-link>
       <div id="nav-wrapper">
-        <ul v-for="link in nav" :key="link.title">
-          <li v-if="!link.children" class="top-level-item">
-            <g-link :to="link.link">{{link.title}}</g-link>
-          </li>
+        <span v-for="link in nav" :key="link.title">
+          <g-link v-if="!link.children" class="top-level-item" :to="link.link">{{link.title}}</g-link>
           <Dropdown v-else :title="link.title" :items="link.children" />
-        </ul>
+        </span>
       </div>
           <div id="mobile-nav">
       <g-image :src="hamburgerIcon" id="hamburgerIcon" @click="hamburgerOn = !hamburgerOn" alt="mobile menu"/>
