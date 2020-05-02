@@ -1,5 +1,7 @@
 <template>
-  <vue-navigation-bar :options="navbarOptions" v-if="isClient"/>
+  <ClientOnly>
+  <vue-navigation-bar :options="navbarOptions"/>
+  </ClientOnly>
 </template>
 
 <script>
@@ -15,7 +17,6 @@ export default {
   },
   data() {
     return {
-      isClient: process.isClient,
       navbarOptions: {
         elementId: "main-navbar",
         isUsingVueRouter: true,
