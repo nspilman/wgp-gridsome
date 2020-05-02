@@ -7,7 +7,7 @@
         >
           <div class="history-logo">
             <div class="frame-img">
-              <g-image src="../assets/images/wineguy_photos/wineguy_about.jpg" alt="logo" width="400"/>
+              <img src="../assets/images/wineguy_photos/wineguy_about.jpg" alt="logo" width="400"/>
             </div>
           </div>
         </div>

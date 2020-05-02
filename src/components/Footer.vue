@@ -1,6 +1,6 @@
 <template>
   <footer id="contact">
-    <div id="contact">
+    <div class="contact">
       <div class="footer-content">
         <div class="container">
           <div class="row">
@@ -33,7 +33,7 @@
             </div>
             <div class="col-sm-5 col-xs-12 col-sm-offset-2">
               <div class="theme-contact">
-                <g-image src="../assets/images/wineguy_photos/contact_section.jpeg" />
+                <img src="../assets/images/wineguy_photos/contact_section.jpeg" />
               </div>
             </div>
           </div>
