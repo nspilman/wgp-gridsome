@@ -120,6 +120,10 @@ export default {
 
 <style>
 
+#portfolio-wrapper{
+  padding-top: 10em;  
+}
+
 .photoModalWrapper {
   width: 100vw;
   height: 100%;

@@ -7,9 +7,11 @@
       </li>
       <li class="dropdown-children">
         <ul class="child-group">
-          <li class="child" v-for="item in items" :key="item.title">
-            <g-link :to="item.link">{{item.title}}</g-link>
+          <g-link :to="item.link" v-for="item in items" :key="item.title">
+          <li class="child">
+            {{item.title}}
           </li>
+          </g-link>
         </ul>
       </li>
     </ul>
