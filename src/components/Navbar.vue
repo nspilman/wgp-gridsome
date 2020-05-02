@@ -1,5 +1,5 @@
 <template>
-  <vue-navigation-bar :options="navbarOptions" />
+  <vue-navigation-bar :options="navbarOptions" v-if="process.isClient"/>
 </template>
 
 <script>
