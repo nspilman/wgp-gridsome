@@ -4,7 +4,7 @@ showImageTitles: false
 ---
 
 ![wedding photos](../uploads/weddings/DSC_1387%20copy%202.jpg)
-![wedding photos](../uploads/weddings/DSC_4096-copy.jpg)
+<!-- ![wedding photos](../uploads/weddings/DSC_4096-copy.jpg)
 ![wedding photos](../uploads/weddings/JT%20courthouse.jpg)
 ![wedding photos](../uploads/weddings/DSC_4624-2%20copy%202.jpg)
 ![wedding photos](../uploads/weddings/DSC_0272-2%20copy%202.jpg)
@@ -59,4 +59,4 @@ showImageTitles: false
 ![wedding photos](../uploads/weddings/DSC_3741-copy.jpg)
 ![wedding photos](../uploads/weddings/DSC_4890.jpg)
 ![wedding photos](../uploads/weddings/DSC_2228-copy.jpg)
-![wedding photos](../uploads/weddings/f54739840-2-copy.jpg)
+![wedding photos](../uploads/weddings/f54739840-2-copy.jpg) -->
