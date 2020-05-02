@@ -44,13 +44,13 @@ export default {
    }
   },
    mounted(){
-      this.getPhotosFromAws();
-      document.addEventListener('contextmenu',e => {
-      e.preventDefault();
-      const copyright = document.querySelector("#copyright")
-      copyright.style.display = "block";
-      setTimeout(()=>{copyright.style.display="none"},2000)
-    })
+    //   this.getPhotosFromAws();
+    //   document.addEventListener('contextmenu',e => {
+    //   e.preventDefault();
+    //   const copyright = document.querySelector("#copyright")
+    //   copyright.style.display = "block";
+    //   setTimeout(()=>{copyright.style.display="none"},2000)
+    // })
    },
    methods:{
     async getPhotosFromAws(){
