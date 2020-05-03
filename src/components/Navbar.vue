@@ -22,7 +22,7 @@
       <div v-if="hamburgerOn" id="hamburger_dropdown"  v-click-outside="hide">
         <ul  v-for="link in nav" :key="link.title">
           <li v-if="!link.children" class="top-level-item">
-            <g-link :href="link.link">{{link.title}}</g-link>
+            <g-link :to="link.link">{{link.title}}</g-link>
           </li>
           <Dropdown v-else :title="link.title" :items="link.children" />
         </ul>
