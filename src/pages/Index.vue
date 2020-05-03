@@ -1,16 +1,35 @@
 <template>
   <Layout>
+    <Menu v-if="showNav"/>
     <Header/>
     <About/>
-    <Services/>
-    <Portfolio v-for="service in services" :category="service" :key="service"/>
+    <Services :services="services"/>
+    <Portfolio v-for="service in services" 
+    :category="service" 
+    :key="`${service}-portfolio`"
+    v-on:toggleNav="showNav = !showNav"
+    />
     <Portfolio category="store"/>
     <Testimonials/>
     <Clientlove/>
-    <Pricing v-for="service in services" :category="service" :key="service"/>
+    <Pricing v-for="service in services" :category="service" :key="`${service}-pricing`"/>
     <Footer/>
   </Layout>
 </template>
+
+<page-query>
+query About {
+  content: allContent {
+    edges {
+      node {
+        id
+        title
+        content
+      }
+    }
+  }
+}
+</page-query>
 
 <script>
 import Header from '../components/Header.vue';
@@ -34,17 +53,18 @@ export default {
     Clientlove,
     Footer,
   },
+  computed:{
+    services(){
+      const servicesMarkup = this.$page.content.edges.map(edge => edge.node).filter(node=> node.title == this.servicesTitle)[0].content
+      return servicesMarkup.replace('<p>','').replace('</p>','').split(/\n/ig).filter(service => service != '');
+    }
+  },
   data(){
     return {
-      services : [
-        'weddings',
-        'events',
-        'family',
-        'seniors',
-        'aerial'
-      ]
+      servicesTitle: "master list of services",
+      showNav: true,
     }
-  }
+  },
 };
 </script>
 

@@ -30,11 +30,6 @@ props:['category'],
   components: {
     Price,
   },
-  data() {
-    return {
-      allCategories: ["weddings", "family", "seniors", "events","aerial"]
-    };
-  },
 };
 </script>
 

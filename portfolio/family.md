@@ -1,5 +1,6 @@
 ---
-title: family
+title: Family Photography
+service: family
 ---
 
 ![family photos](../uploads/family/Ajoelito%20tractor%20leaves%20sun%20copy.jpg)

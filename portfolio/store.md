@@ -1,8 +1,12 @@
 ---
-title: store
+title: Store
+service: store
 showImageTitles: true 
 
 ---
+
+
+# The Store 
 
 All of the images in my Galleries are available for sale as fine art metal or canvas prints in varsizes from small to large. To purchase a print simply click on the “Contact to Purchase” buttonsend me the name of the image, size you’d like, and whether you’d like metal or canvas. If you dfind the size you'd like, custom prints are available. 
 							

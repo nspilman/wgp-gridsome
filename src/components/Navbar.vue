@@ -18,8 +18,8 @@
       </div>
           <div id="mobile-nav">
       <g-image :src="hamburgerIcon" id="hamburgerIcon" @click="hamburgerOn = !hamburgerOn" alt="mobile menu"/>
-      <!-- <transition name="fade"> -->
-      <div v-if="hamburgerOn" id="hamburger_dropdown">
+      <transition name="fade">
+      <div v-if="hamburgerOn" id="hamburger_dropdown"  v-click-outside="hide">
         <ul  v-for="link in nav" :key="link.title">
           <li v-if="!link.children" class="top-level-item">
             <g-link :href="link.link">{{link.title}}</g-link>
@@ -27,7 +27,7 @@
           <Dropdown v-else :title="link.title" :items="link.children" />
         </ul>
       </div>
-      <!-- </transition> -->
+      </transition>
     </div>
     </div>
   </div>
@@ -36,6 +36,9 @@
 <script>
 import Dropdown from "./Dropdown.vue";
 import hamburgerIcon from "../assets/images/Hamburger_icon.svg";
+
+import ClickOutside from 'vue-click-outside'
+
 export default {
   name: "navbar",
   components: {
@@ -121,6 +124,14 @@ export default {
       hamburgerIcon,
       hamburgerOn: false
     };
+  },
+  methods:{
+    hide(){
+      this.hamburgerOn = false;
+    }
+  },
+  directives:{
+    ClickOutside
   }
 };
 </script>

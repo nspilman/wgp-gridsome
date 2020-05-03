@@ -1,5 +1,6 @@
 <template>
     <div :id="`${category}-portfolio`" class="portfolio-wrapper">
+        <h1 class="portfolio-title">{{title}}</h1>
     <Navbar v-if="!selectedPhoto" />
     <section class="section-blog-massory">
       <div class="container">
@@ -34,6 +35,7 @@ query {
 edges{
     node{
        title
+       service
         path
         content
         showImageTitles
@@ -55,6 +57,7 @@ export default {
       photos: [],
       selectedPhoto:null,
       text:'',
+      title:'',
     };
   },
   components: {
@@ -71,9 +74,11 @@ export default {
     },
     openImage(e) {
       this.selectedPhoto = e;
+      this.$emit('toggleNav')
     },
     closeImage() {
       this.selectedPhoto = null;
+      this.$emit('toggleNav')
     },
     getPhotoName(fullImgTagString){
       const photoName = fullImgTagString.split(".jpg?")[0].split('/').pop().replace(/-/gi,' ')
@@ -81,9 +86,6 @@ export default {
     }
   },
   computed: {
-      content(){
-       return this.$static.images.edges.map(edge => edge.node).filter(entry => entry.title == this.category)[0].content
-      },
     photosWithNames(){
       if(false){
         return this.photos.map(photo => photo + `<h4>${this.getPhotoName(photo)}</h4>`)
@@ -92,13 +94,18 @@ export default {
     }
   },
   created(){
-    const content = this.content;
+    const filteredNode = this.$static.images.edges.map(edge => edge.node).filter(entry => entry.service == this.category)[0];
+    console.log(filteredNode)
+    if(filteredNode){
+ const content = filteredNode.content;
+    this.title = filteredNode.title;
     const paragraphTags = content.replace('<p>','').replace('</p>','').split(/\n/ig);
     const imageTagIdentifiedString = "<img class=";
     const imageStrings = paragraphTags.filter(tag => tag.includes(imageTagIdentifiedString)).map(photo => photo.split('<noscript>')[0])
     const textStrings = paragraphTags.filter(tag => !tag.includes(imageTagIdentifiedString))
     this.photos = imageStrings;
     this.text = textStrings;
+    }
   },
   async mounted() {
     document.addEventListener("contextmenu", e => {
@@ -165,6 +172,11 @@ export default {
   grid-template-columns:repeat(auto-fill,minmax(25vw,1fr));
   grid-auto-rows:10px;
   padding:2em;
+}
+
+.portfolio-title{
+    color:black;
+    text-align: center;
 }
 
 @media only screen and (max-width: 900px) {

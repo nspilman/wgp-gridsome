@@ -69,6 +69,18 @@ module.exports = {
       {
         use: '@gridsome/source-filesystem',
         options: {
+          path: 'content/service-list.md',
+          typeName: 'ServiceList',
+          remark: {
+            plugins: [
+              // ...local plugins
+            ]
+          }
+        }
+      },
+      {
+        use: '@gridsome/source-filesystem',
+        options: {
           path: '/clientlove/*.md',
           typeName: 'Clientlove',
           remark: {

@@ -1,5 +1,6 @@
 ---
-title: weddings
+title: Wedding Photography
+service: weddings
 showImageTitles: false
 ---
 

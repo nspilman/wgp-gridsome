@@ -15,7 +15,7 @@
           <div class="section-title title-sty2">
             <h3 class="h3 bor-underline">About</h3>
           </div>
-          <div class="section-content content-italic" v-html="content[0].content">
+          <div class="section-content content-italic" v-html="content">
             <div class="link-detail">
               <g-link to="/portfolio" class="btn btn-default">My work</g-link>
             </div>
@@ -43,7 +43,7 @@ query About {
 export default {
   computed:{
     content(){
-      return this.$static.content.edges.map(edge => edge.node)
+      return this.$static.content.edges.map(edge => edge.node).filter(node => node.title=='about')[0].content
     }
   },
 };
