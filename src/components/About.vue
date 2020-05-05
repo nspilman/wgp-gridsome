@@ -27,12 +27,13 @@
 </template>
 
 <static-query>
-query About {
-  content: allContent {
+query Content {
+  content: allContent(filter: { title : {eq :"about"}} ) {
     edges {
       node {
         id
         title
+        path
         content
       }
     }
@@ -43,7 +44,8 @@ query About {
 export default {
   computed:{
     content(){
-      return this.$static.content.edges.map(edge => edge.node).filter(node => node.title=='about')[0].content
+      console.log(this.$static.content)
+      return this.$static.content.edges[0].node.content
     }
   },
 };

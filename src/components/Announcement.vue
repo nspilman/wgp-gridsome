@@ -4,14 +4,13 @@
 
 <static-query>
 query Content {
-  content: allAnnouncements(sortBy: "date", order: DESC, limit:1) {
+  content: allContent(filter: { title : {eq :"announcement"}} ) {
     edges {
       node {
         id
         title
         path
         content
-        date
       }
     }
   }
@@ -22,6 +21,7 @@ query Content {
 export default {
     computed:{
         markdown(){
+            console.log(this.$static)
             return this.$static.content.edges[0].node.content
         }
     },
