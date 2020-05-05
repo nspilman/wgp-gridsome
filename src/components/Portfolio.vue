@@ -95,7 +95,6 @@ export default {
   },
   created(){
     const filteredNode = this.$static.images.edges.map(edge => edge.node).filter(entry => entry.service == this.category)[0];
-    console.log(filteredNode)
     if(filteredNode){
  const content = filteredNode.content;
     this.title = filteredNode.title;

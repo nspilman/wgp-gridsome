@@ -45,6 +45,18 @@ module.exports = {
       {
         use: '@gridsome/source-filesystem',
         options: {
+          path: 'announcements/*.md',
+          typeName: 'Announcements',
+          remark: {
+            plugins: [
+              // ...local plugins
+            ]
+          }
+        }
+      },
+      {
+        use: '@gridsome/source-filesystem',
+        options: {
           path: 'portfolio/*.md',
           typeName: 'Portfolio',
           remark: {
@@ -59,18 +71,6 @@ module.exports = {
         options: {
           path: 'content/Pricing/*.md',
           typeName: 'Pricing',
-          remark: {
-            plugins: [
-              // ...local plugins
-            ]
-          }
-        }
-      },
-      {
-        use: '@gridsome/source-filesystem',
-        options: {
-          path: 'content/service-list.md',
-          typeName: 'ServiceList',
           remark: {
             plugins: [
               // ...local plugins

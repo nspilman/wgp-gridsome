@@ -2,6 +2,7 @@
   <Layout>
     <Menu v-if="showNav"/>
     <Header/>
+    <Announcement/>
     <About/>
     <Services :services="services"/>
     <Portfolio v-for="service in services" 
@@ -33,6 +34,7 @@ query About {
 
 <script>
 import Header from '../components/Header.vue';
+import Announcement from '../components/Announcement.vue';
 import About from '../components/About.vue';
 import Services from '../components/Services.vue';
 import Portfolio from '../components/Portfolio.vue';
@@ -45,6 +47,7 @@ export default {
   name: 'home',
   components: {
     Header,
+    Announcement,
     About,
     Services,
     Testimonials,

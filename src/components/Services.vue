@@ -116,4 +116,8 @@ export default {
   color:white;
 }
 
+.project-logo > .fa{
+  color:black;
+}
+
 </style>
