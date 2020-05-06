@@ -81,13 +81,13 @@ export default {
       this.$emit('toggleNav')
     },
     getPhotoName(fullImgTagString){
-      const photoName = fullImgTagString.split(".jpg?")[0].split('/').pop().replace(/-/gi,' ')
+      const photoName = fullImgTagString.split("/assets/static/")[1].split('.')[0].split('/').pop().replace(/-/gi,' ')
       return photoName
     }
   },
   computed: {
     photosWithNames(){
-      if(false){
+      if(this.$static.images.edges.map(edge => edge.node).filter(entry => entry.service == this.category)[0].showImageTitles){
         return this.photos.map(photo => photo + `<h4>${this.getPhotoName(photo)}</h4>`)
       }
       return this.photos;
@@ -100,7 +100,7 @@ export default {
     this.title = filteredNode.title;
     const paragraphTags = content.replace('<p>','').replace('</p>','').split(/\n/ig);
     const imageTagIdentifiedString = "<img class=";
-    const imageStrings = paragraphTags.filter(tag => tag.includes(imageTagIdentifiedString)).map(photo => photo.split('<noscript>')[0])
+    const imageStrings = paragraphTags.filter(tag => tag.includes(imageTagIdentifiedString))
     const textStrings = paragraphTags.filter(tag => !tag.includes(imageTagIdentifiedString))
     this.photos = imageStrings;
     this.text = textStrings;
