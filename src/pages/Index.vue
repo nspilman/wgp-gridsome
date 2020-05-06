@@ -2,7 +2,7 @@
   <Layout>
     <Menu v-if="showNav"/>
     <Header/>
-    <Announcement/>
+    <Announcement :announcement="announcement"/>
     <About/>
     <Services :services="services"/>
     <Portfolio v-for="service in services" 
@@ -60,6 +60,9 @@ export default {
     services(){
       const servicesMarkup = this.$page.content.edges.map(edge => edge.node).filter(node=> node.title == this.servicesTitle)[0].content
       return servicesMarkup.replace('<p>','').replace('</p>','').split(/\n/ig).filter(service => service != '');
+    },
+    announcement(){
+      return this.$page.content.edges.map(edge => edge.node).filter(node=> node.title.toLowerCase() == 'announcement')[0]
     }
   },
   data(){

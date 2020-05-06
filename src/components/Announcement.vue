@@ -1,29 +1,10 @@
 <template>
-  <div id="announcement" v-html="markdown"/>
+  <div id="announcement" v-html="announcement.content"/>
 </template>
-
-<static-query>
-query Content {
-  content: allContent(filter: { title : {eq :"announcement"}} ) {
-    edges {
-      node {
-        id
-        title
-        path
-        content
-      }
-    }
-  }
-}
-</static-query>
 
 <script>
 export default {
-    computed:{
-        markdown(){
-            return this.$static.content.edges[0].node.content
-        }
-    },
+    props:['announcement']
 }
 </script>
 

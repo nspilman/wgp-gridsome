@@ -44,7 +44,6 @@ query Content {
 export default {
   computed:{
     content(){
-      console.log(this.$static.content)
       return this.$static.content.edges[0].node.content
     }
   },
