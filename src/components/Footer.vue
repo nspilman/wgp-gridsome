@@ -27,6 +27,19 @@
                         </span>WineGuyPhotography@gmail.com
                       </a>
                     </li>
+                    <li>
+                      <div class="social-link nav-icon-style2">
+                        <a href="https://twitter.com/wineguyphoto" target="_blank">
+                          <i class="fa fa-twitter"></i>
+                        </a>
+                        <a href="https://www.instagram.com/wineguyphotography/" target="_blank">
+                          <i class="fa fa-instagram"></i>
+                        </a>
+                        <a href="https://www.facebook.com/wineguyphotography" target="_blank">
+                          <i class="fa fa-facebook"></i>
+                        </a>
+                      </div>
+                    </li>
                   </ul>
                 </div>
               </div>
@@ -48,23 +61,15 @@
                   <div class="ds-cell-auto">
                     <p>© 2019 Wine Guy Photography - all right reserved</p>
                     <div class="social-link nav-icon-style2">
-                      <ul>
-                        <li>
-                          <a href="https://twitter.com/wineguyphoto" target="_blank">
-                            <i class="fa fa-twitter"></i>
-                          </a>
-                        </li>
-                        <li>
-                          <a href="https://www.instagram.com/wineguyphotography/" target="_blank">
-                            <i class="fa fa-instagram"></i>
-                          </a>
-                        </li>
-                        <li>
-                          <a href="https://www.facebook.com/wineguyphotography" target="_blank">
-                            <i class="fa fa-facebook"></i>
-                          </a>
-                        </li>
-                      </ul>
+                      <a href="https://twitter.com/wineguyphoto" target="_blank">
+                        <i class="fa fa-twitter"></i>
+                      </a>
+                      <a href="https://www.instagram.com/wineguyphotography/" target="_blank">
+                        <i class="fa fa-instagram"></i>
+                      </a>
+                      <a href="https://www.facebook.com/wineguyphotography" target="_blank">
+                        <i class="fa fa-facebook"></i>
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -78,14 +83,14 @@
 </template>
 
 <script>
-import logo from '../assets/images/wineguy_photos/wineguy_logo.png';
+import logo from "../assets/images/wineguy_photos/wineguy_logo.png";
 
 export default {
   data() {
     return {
-      logo,
+      logo
     };
-  },
+  }
 };
 </script>
 
@@ -97,14 +102,25 @@ export default {
   max-width: 40vw;
 }
 
-.theme-info{
+.theme-info {
   display: flex;
   flex-direction: column;
 }
 
-.text-link{
+.text-link {
   text-decoration: none;
   font-size: 2em;
-    list-style-type: none;
+  list-style-type: none;
+}
+
+.social-link {
+  padding: 1em;
+  display: flex;
+}
+
+.fa {
+  font-size: 20px;
+  color: white;
+  margin: 1em;
 }
 </style>

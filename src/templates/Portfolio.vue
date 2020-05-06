@@ -100,7 +100,7 @@ export default {
     const content = this.$page.images.content;
     const paragraphTags = content.replace('<p>','').replace('</p>','').split(/\n/ig);
     const imageTagIdentifiedString = "<img class=";
-    const imageStrings = paragraphTags.filter(tag => tag.includes(imageTagIdentifiedString))
+    const imageStrings = paragraphTags.filter(tag => tag.includes(imageTagIdentifiedString)).map(photo => photo.split('<noscript>')[0])
     const textStrings = paragraphTags.filter(tag => !tag.includes(imageTagIdentifiedString))
     this.photos = imageStrings;
     this.text = textStrings;

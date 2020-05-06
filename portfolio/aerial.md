@@ -1,5 +1,6 @@
 ---
-title: aerial
+title: Aerial Photography
+service: aerial
 ---
 
 ![aerial photos](../uploads/aerial/Capitol%20Sunrise%201%20w%20signature%20copy%20low%20res.jpg)

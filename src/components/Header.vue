@@ -1,6 +1,5 @@
 <template>
   <header id="header" class="header-v2">
-    <Menu/>
     <div class="header">
       <div class="header-slider" style="margin-top:0px;">
         <div
@@ -42,7 +41,6 @@ query Content {
 </static-query>
 
 <script>
-import Menu from './Navbar.vue';
 import axios from 'axios';
 
 export default {
@@ -53,9 +51,6 @@ export default {
       isLoading: true,
       imageLoaded: 0,
     };
-  },
-  components: {
-    Menu,
   },
   computed: {
     currentPhoto() {
@@ -96,13 +91,19 @@ export default {
 <style>
 
 .ts-item-background img{
+height: unset;
+width:unset;
+}
+
+.ts-item-background img{
 height: 100vh;
 width:auto;
 }
 
-@media only screen and (max-width: 900px) {
-#portfolio-photos{
-widows: 100%;
+@media only screen and (max-width: 800px) {
+.ts-item-background img{
+  padding-top:5em;
+width: 100%;
 height: auto;
 }
 }

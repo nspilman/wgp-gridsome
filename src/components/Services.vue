@@ -12,13 +12,13 @@
           </div>
           <div class="section-content">
             <div class="project-list style-projt2">
-              <div class="project-item" v-for="service in services" :key="service">
+              <div class="project-item" v-for="service in services.filter(service=> getContentByName(service).length > 0)" :key="service">
                 <div class="project-item-content">
                   <div class="project-header">
                     <span class="project-logo">
                       <i class="fa fa-pagelines"></i>
                     </span>
-                    <h6 class="h6 project-title">WEDDINGS</h6>
+                    <h6 class="h6 project-title">{{service}}</h6>
                   </div>
                   <div class="project-body">
                      <div v-html="getContentByName(service)"/>
@@ -58,11 +58,7 @@ query Content {
 
 <script>
 export default {
-      data(){
-      return {
-        services:['weddings','events','family','seniors']
-      }
-    },
+        props:['services'],
   computed:{
     content(){
       return this.$static.content.edges.map(edge => edge.node)
@@ -70,7 +66,12 @@ export default {
   },
   methods:{
     getContentByName(name){
-      return this.content.filter(service => service.title==name)[0].content
+      try{
+        return this.content.filter(service => service.title==name)[0].content
+      }
+      catch{
+        return ''
+      }
     },
   },
 };
@@ -113,6 +114,10 @@ export default {
 .btn:hover{
   background-color:black;
   color:white;
+}
+
+.project-logo > .fa{
+  color:black;
 }
 
 </style>

@@ -14,7 +14,7 @@ query {
 
 <style>
 @import url('../assets/css/bootstrap.css');
-/* @import url('../assets/css/font-awesome.css'); */
+@import url('../assets/css/font-awesome.css');
 @import url('../assets/css/font.css');
 @import url('../assets/css/magnific-popup.css');
 @import url('../assets/css/owl.carousel.css');

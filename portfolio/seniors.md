@@ -1,5 +1,7 @@
 ---
-title: seniors
+title: Senior Portraits
+service: seniors
+
 showImageTitles: false 
 
 ---

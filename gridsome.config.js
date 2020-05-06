@@ -45,6 +45,18 @@ module.exports = {
       {
         use: '@gridsome/source-filesystem',
         options: {
+          path: 'announcements/*.md',
+          typeName: 'Announcements',
+          remark: {
+            plugins: [
+              // ...local plugins
+            ]
+          }
+        }
+      },
+      {
+        use: '@gridsome/source-filesystem',
+        options: {
           path: 'portfolio/*.md',
           typeName: 'Portfolio',
           remark: {

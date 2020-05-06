@@ -1,6 +1,5 @@
 ---
 title: homepage
-showImageTitles: false 
 
 ---
 

@@ -15,7 +15,7 @@
           <div class="section-title title-sty2">
             <h3 class="h3 bor-underline">About</h3>
           </div>
-          <div class="section-content content-italic" v-html="content[0].content">
+          <div class="section-content content-italic" v-html="content">
             <div class="link-detail">
               <g-link to="/portfolio" class="btn btn-default">My work</g-link>
             </div>
@@ -27,12 +27,13 @@
 </template>
 
 <static-query>
-query About {
-  content: allContent {
+query Content {
+  content: allContent(filter: { title : {eq :"about"}} ) {
     edges {
       node {
         id
         title
+        path
         content
       }
     }
@@ -43,7 +44,8 @@ query About {
 export default {
   computed:{
     content(){
-      return this.$static.content.edges.map(edge => edge.node)
+      console.log(this.$static.content)
+      return this.$static.content.edges[0].node.content
     }
   },
 };

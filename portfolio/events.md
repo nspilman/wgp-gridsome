@@ -1,5 +1,6 @@
 ---
-title: events
+title: Event Photography
+service: events
 ---
 
 ![event photos](../uploads/events/DSC_8335copy.jpg)

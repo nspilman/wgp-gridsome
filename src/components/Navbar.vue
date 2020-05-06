@@ -18,16 +18,16 @@
       </div>
           <div id="mobile-nav">
       <g-image :src="hamburgerIcon" id="hamburgerIcon" @click="hamburgerOn = !hamburgerOn" alt="mobile menu"/>
-      <!-- <transition name="fade"> -->
-      <div v-if="hamburgerOn" id="hamburger_dropdown">
+      <transition name="fade">
+      <div v-if="hamburgerOn" id="hamburger_dropdown"  v-click-outside="hide">
         <ul  v-for="link in nav" :key="link.title">
           <li v-if="!link.children" class="top-level-item">
-            <g-link :href="link.link">{{link.title}}</g-link>
+            <g-link :to="link.link">{{link.title}}</g-link>
           </li>
           <Dropdown v-else :title="link.title" :items="link.children" />
         </ul>
       </div>
-      <!-- </transition> -->
+      </transition>
     </div>
     </div>
   </div>
@@ -36,6 +36,9 @@
 <script>
 import Dropdown from "./Dropdown.vue";
 import hamburgerIcon from "../assets/images/Hamburger_icon.svg";
+
+import ClickOutside from 'vue-click-outside'
+
 export default {
   name: "navbar",
   components: {
@@ -58,23 +61,23 @@ export default {
           children: [
             {
               title: "Wedding Photos",
-              link: "/portfolio/weddings"
+              link: "#weddings-portfolio"
             },
             {
               title: "Family Photos",
-              link: "/portfolio/family"
+              link: "#family-portfolio"
             },
             {
               title: "Event Photos",
-              link: "/portfolio/events"
+              link: "#events-portfolio"
             },
             {
               title: "Senior Photos",
-              link: "/portfolio/seniors"
+              link: "#seniors-portfolio"
             },
             {
               title: "Aerial Photos",
-              link: "/portfolio/aerial"
+              link: "#aerial-portfolio"
             }
           ]
         },
@@ -84,33 +87,33 @@ export default {
           children: [
             {
               title: "Wedding Photos",
-              link: "/pricing?category=weddings"
+              link: "#weddings-pricing"
             },
             {
               title: "Family Photos",
-              link: "/pricing?category=family"
+              link: "#family-pricing"
             },
             {
               title: "Event Photos",
-              link: "/pricing?category=events"
+              link: "#events-pricing"
             },
             {
               title: "Senior Photos",
-              link: "/pricing?category=seniors"
+              link: "#seniors-pricing"
             },
             {
               title: "Aerial Photos",
-              link: "/pricing?category=aerial"
+              link: "#aerial-pricing"
             }
           ]
         },
         {
           title: "Client Love",
-          link: "/client-love"
+          link: "#client-love"
         },
         {
           title: "Store",
-          link: "/portfolio/store"
+          link: "#store-portfolio"
         },
         {
           title: "Contact",
@@ -121,6 +124,14 @@ export default {
       hamburgerIcon,
       hamburgerOn: false
     };
+  },
+  methods:{
+    hide(){
+      this.hamburgerOn = false;
+    }
+  },
+  directives:{
+    ClickOutside
   }
 };
 </script>
