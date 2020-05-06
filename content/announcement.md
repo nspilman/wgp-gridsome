@@ -1,8 +1,8 @@
 ---
-title: announcement
+title: Announcement
 ---
-# Huzzah
+# Senior Special!
 
-## I am a post!
+Follow me on Instagram and book a summer/fall Senior Photo Shoot by June 1st and get a second shoot to give to a friend for half price!  Savings of $200!  
 
-That's all there is to it! And since this field had existed under the surface all along, it already had data for all existing items. This turned out to be a huge timesaver and is a feature I'll be using, along with the 'updatedAt' system field, regularly from now on.
+Wine Guy Photography follows Covid-19 social distancing best practices.
