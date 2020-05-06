@@ -21,7 +21,6 @@ query Content {
 export default {
     computed:{
         markdown(){
-            console.log(this.$static)
             return this.$static.content.edges[0].node.content
         }
     },
