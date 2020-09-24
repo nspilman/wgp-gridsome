@@ -1,8 +1,8 @@
 ---
 title: Announcement
 ---
-# Senior Special!
+# Wedding Special!
 
-Follow me on [Instagram](https://www.instagram.com/wineguyphotography/) and book a summer/fall Senior Photo Shoot by August 31st and get $50 off of "The Works"!
+Follow me on [Instagram](https://www.instagram.com/wineguyphotography/) and book a 2021 Wedding by November 30th, 2020 and get $150 off "The Works"!
 
 Wine Guy Photography follows Covid-19 social distancing best practices.
